@@ -1,0 +1,179 @@
+{% extends 'base2.html' %}
+
+{% load static from staticfiles %}
+
+{% block css %}
+	<link rel="stylesheet" href="{% static 'css/services.css' %}">
+	<style>
+		.relleno-both-lateral-3{
+			padding-left: 5em !important;
+			padding-right: 0 !important;
+		}
+	</style>
+	<link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+{% endblock %}
+
+{% block main %}
+
+<header id="header-services">
+	
+</header>
+<section class="secciones" >
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3 text-center title-especial">
+			
+				<h1 class="font-size-3" >
+					<strong>SERVICES<span class="color-texto-sunflower">.</span></strong>
+				</h1>
+				
+			</div>
+			<div class="col-md-12">
+				<p class="margen-top-dos">
+					{% for text_service in text_services %}
+						{{text_service.contenido}}
+					{% empty %}
+						<div class="alert alert-warning text-center" role="alert">
+							<b>Empty text for Service!</b> - <a href="/admin">Add Text.</a>
+						</div>
+					{% endfor %}
+				</p>
+			</div>
+		</div>
+	
+		<div class="row margen-top-dos">
+			<div class="col-md-6 col-md-offset-3 text-center">
+				<h2 class="font-size-3">SERVICES OFFERED</h2>
+			</div>
+
+		</div>
+		<div class="row margen-top-dos">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="row">
+					{% for servicio in servicios %}
+					<div class="col-md-6">	
+						<p>{{servicio.nombre_servicio}}</p>
+					</div>
+					{% empty %}
+						<div class="alert alert-warning text-center" role="alert">
+							<b>Empty list of Services Offered!</b> - <a href="/admin">Add Services.</a>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+			
+		</div>
+
+		<div class="row margen-top-uno">
+			<div class="col-md-10 col-md-offset-1">
+				<div class="row">
+					{% for sector in sectores %}
+					<div class="col-md-6">
+						<h5 class="text-center title-especial-2 margen-top-uno upper"><a href="/sectors/{{sector.slug}}" class="a-null-sector">{{sector.nombre_sector}}</a></h5>
+						{{sector.descripcion}}
+					</div>
+
+					{% empty %}
+						<div class="alert alert-warning text-center" role="alert">
+							<b>Empty list of Sectors!</b> - <a href="/admin">Add Sectors.</a>
+						</div>
+
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+
+		<div class="row margen-top-dos">
+			<div class="col-md-8 col-md-offset-2 text-center">
+				<h2 class="font-size-3">LICENSES AND CERTIFICATIONS</h2>
+				<p>SRS Engineering, Inc. has received technical certifications from the following agencies:</p>
+			</div>
+
+		</div>
+
+		<div class="row margen-top-dos">
+			{% for e_licencia in e_licencias %}
+			<div class="col-md-6">
+				<div class="media">
+				  <a class="pull-left" href="#">
+				    <img src="{{MEDIA_URL}}{{e_licencia.imagen}}" width="64px" style="margin-top:2em">
+				  </a>
+				  <div class="media-body">
+				    <h4 class="media-heading"><b>{{e_licencia.nombre_entidad}}</b></h4>
+					
+					{% for licencia in e_licencia.licencias.all %}
+						<p>{{licencia.numero}} {{licencia.titulo}}</p>
+					{% endfor%}
+
+
+				  </div>
+				</div>
+			</div>
+			{% empty %}
+				<div class="alert alert-warning text-center" role="alert">
+					<b>Empty list of Licenses!</b> - <a href="/admin">Add Licenses.</a>
+				</div>
+
+			{% endfor %}
+
+			<div class="col-md-6">
+				<div class="media">
+				  <a class="pull-left" href="#">
+				    <img src="{% static 'img/license1.png' %}" width="64px" style="margin-top:2em">
+				  </a>
+				  <div class="media-body">
+				    <h4 class="media-heading"><b>FLORIDA DEPARTMENT OF TRANSPORTATION</b></h4>
+				    <p>3.1 Minor Highway Design</p>
+				    <p>3.2 Major Highway Design</p>
+				    <p>7.1 Signing, Pavement Marking and Channelization</p>
+				    <p>10.1 Roadway Construction Engineering Inspection</p>
+				    <p>10.3 Construction Materials Inspection</p>
+
+				    <h4 class="media-heading margen-top-uno"><b>SMALL BUSINESS CERTIFICATIONS</b></h4>
+				    <p>Minority Business Enterprise (MBE), Florida</p>
+				    <p>Small Business Enterprise, SFWMD</p>
+				    <p>CBE, Miami-Dade County</p>
+				    <p>MBE, Miami-Dade county Public Schools</p>
+				    <p>MBE, School Board of Broward County</p>
+				    
+				  </div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row margen-top-dos">
+			<div class="col-md-6 col-md-offset-3 text-center">
+				<h2 class="font-size-3">AWARDS</h2>
+				
+			</div>
+
+		</div>
+
+		<div class="row margen-top-dos">
+			<div class="col-md-6 col-md-offset-3">
+				{% for award in awards %}
+				<div class="media">
+				  <a class="pull-left" href="#">
+				    <img src="{{MEDIA_URL}}{{award.imagen}}" width="64px">
+				  </a>
+				  <div class="media-body">
+				    <p class="text-center">{{award.titulo}}</p>
+				    
+				  </div>
+				</div>
+				{% empty %}
+					<div class="alert alert-warning text-center" role="alert">
+						<b>Empty list of Awards!</b> - <a href="/admin">Add Awards.</a>
+					</div>
+
+				{% endfor %}
+
+				
+
+			</div>
+		</div>
+
+	</div>
+</section>
+
+{% endblock %}

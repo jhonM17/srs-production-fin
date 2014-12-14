@@ -1,0 +1,111 @@
+{% extends 'base2.html' %}
+
+{% load static from staticfiles %}
+
+{% block css %}
+	<link rel="stylesheet" href="{% static 'css/home.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<style>
+		.relleno-both-lateral-3{
+			padding-left: 5em !important;
+			padding-right: 0 !important;
+		}
+
+		.banner { position: relative; overflow: auto; }
+    	.banner li { list-style: none; }
+        .banner ul li { float: left; }
+        .banner ul {
+        	padding: 0;
+        	margin: 0 1px;
+        }
+
+        
+	
+	
+	</style>
+	<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+{% endblock %}
+
+{% block main %}
+<section id="principal-group">
+	<div class="container-srs">
+		<div class="row">
+			<div class="col-md-6 title-especial" id="title-team">
+				<h1 class="font-size-4-3"><strong class="bold-900">MEET THE <br>TEAM<span class="color-texto-sunflower">.</span></strong></h1>
+			</div>
+			<div class="col-md-6 text-justify" id='cont-team'>
+				The entire SRS team is committed to operating in a professional- ethical manner.  We value the integrity of business relationships with clients and industry partners.  We strive to provide innovative effective engineering solutions.  Our talent and technology ensure efficiency in executing results. At SRS we manage deadlines and cost control with precision, giving our team a firm competitive advantage.
+			</div>
+		</div>
+	</div>
+</section>
+<section id="slider-team">
+	
+	<div class="container-srs">
+
+		        	<div class="row">
+						{% for miembro in miembros %}	
+
+		        		<div class="col-md-3 col-xs-6">
+		        			<div class="thumbnail">
+						      <img src="{{MEDIA_URL}}{{miembro.imagen}}" style="height:225px" class="img-slider">
+						      <div class="caption">
+						        <h5 class="text-center" style="color: black">{{miembro.nombre}}</h5>
+						        <h5 class="text-center margen-top-medio" style="color:#aeaeae;">{{miembro.cargo}}</h5>
+						        <p class="text-center margen-top-medio" style="color: #37424A">{{miembro.bio|slice:":98"}} ... <a href="#">Ver más</a></p>
+						        <p class="text-center margen-top-medio">
+						        	{% for red in miembro.redes_sociales.all %}
+						        	<a href="{{red.red}}" class="btn btn-default btn-xs" role="button">
+						        		{% if "facebook" in red.red %}
+						        		<span class="icon-facebook"></span>
+						        		{% endif %}
+						        		{% if "google" in red.red %}
+						        		<span class="icon-googleplus"></span>
+						        		{% endif %}
+						        		{% if "twitter" in red.red %}
+						        		<span class="icon-twitter"></span>
+						        		{% endif %}
+						        		
+						        	</a> 
+						        	{% endfor %}
+						        </p>
+						      </div>
+						    </div>
+		        		</div>
+
+		        		{% empty %}
+		        		<div class="alert alert-warning text-center" role="alert">
+							<b>Empty list of Team Members!</b> - <a href="/admin">Add Team Members.</a>
+						</div>
+
+		        		{% endfor%}
+
+		        		
+		        	</div>
+		        	
+
+		       
+		
+	<div>
+	
+</section>
+
+
+<section id="about-cont">
+	<div class="container-srs">
+		<div class="row" id="about">
+			<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 title-especial" id="title-about">
+				<h1 class="font-size-4-3"><strong class="bold-900">ABOUT <br>US<span class="color-texto-sunflower">.</span></strong></h1>
+			</div>
+			<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+				<figure>
+					<img src="{% static 'img/groupfin.png'%}" width="100%" class="img-responsive img-responsive-about">
+				</figure>
+				<p class="margen-top-dos text-justify">
+					Talent. Integrity. Innovation. Operating since 1995, SRS Engineering, Inc. has earned a reputation as one of the top performers in civil engineering consulting firms.  Setting our standards with a commitment to excellence, SRS distinguishes itself by remaining tightly focused on delivering the highest quality of service and providing innovative solutions throughout every aspect of engineering design and construction management. We specialize in Aviation, Roadway and Transportation, Water Supply and Wastewater Systems, Drainage Systems, Site/Land Development, Environmental Engineering Studies, Structural Engineering, and Construction Phase Services Sectors. Centrally located in Miami, SRS has built longstanding business relationships by keeping integrity at the forefront of every business decision.  A commitment to excellence, innovative technology and extensive industry knowledge are criteria that have established the firm in both the private and public sectors in the United States, the Caribbean, Panama and Ghana.  Our mission is simple- to exceed our clients every expectation.
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}

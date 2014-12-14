@@ -1,0 +1,142 @@
+#header-detalle-sector{
+	background: url("../img/aviationfin.png") center no-repeat;
+  	background-size: cover;
+  	height: 268px;
+}
+
+.mayuscula{
+	text-transform: uppercase;
+}
+
+@media screen  and (max-width: 480px) and (min-width: 0){
+	#header-detalle-sector{
+		height: 150px;
+	}
+
+	.descripcion-sector{
+		text-align: justify;
+		margin-top: 0.5em;
+	}
+
+	.sector-text-responsive{
+		font-size: 1.5em;
+		text-align: center;
+	}
+
+	.sector-text-responsive-2{
+		font-size: 1em;
+		text-align: center;
+	}
+
+	.img-proyecto{
+		height: 180px;
+	}
+
+	.proyecto{
+		background-color: #ecf0f1;
+		padding-top: 1em;
+	}
+
+	.detalle-proyecto{
+		padding: 1em;
+	}
+
+	.margen-top-dos{
+		margin-top: 1em;
+	}
+
+	.container-responsive-3{
+		 width: 80%;
+	    margin: 0 auto;
+	    overflow: hidden;
+	}
+}
+
+@media screen  and (max-width: 768px) and (min-width: 480px){
+	#header-detalle-sector{
+		height: 220px;
+	}
+
+	.container-responsive-3{
+		 width: 82%;
+	    margin: 0 auto;
+	    overflow: hidden;
+	}
+
+	.proyecto{
+		background-color: #ecf0f1;
+		padding-top: 1em;
+	}
+
+	.detalle-proyecto{
+		padding: 1em;
+	}
+
+	.margen-top-dos{
+		margin-top: 1em;
+	}
+
+	.img-proyecto{
+		height: 220px;
+	}
+
+	.sector-text-responsive{
+		font-size: 1.8em;
+		text-align: center;
+	}
+
+	.sector-text-responsive-2{
+		font-size: 1em;
+		text-align: center;
+	}
+
+	.descripcion-sector{
+		text-align: justify;
+		margin-top: 0.5em;
+	}
+}
+
+@media screen  and (max-width: 1024px) and (min-width: 768px){
+	#header-detalle-sector{
+		height: 220px;
+	}
+
+	.container-responsive-3{
+		 width: 82%;
+	    margin: 0 auto;
+	    overflow: hidden;
+	}
+
+	.proyecto{
+		background-color: #ecf0f1;
+		padding-top: 1em;
+	}
+
+	.detalle-proyecto{
+		padding: 1em;
+	}
+
+	.margen-top-dos{
+		margin-top: 1em;
+	}
+
+	.img-proyecto{
+		height: 220px;
+	}
+
+	.sector-text-responsive{
+		font-size: 1.8em;
+		text-align: center;
+	}
+
+	.sector-text-responsive-2{
+		font-size: 1em;
+		text-align: center;
+	}
+
+	.descripcion-sector{
+		text-align: justify;
+		margin-top: 0.5em;
+	}
+}
+

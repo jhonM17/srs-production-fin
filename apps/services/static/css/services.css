@@ -1,0 +1,17 @@
+#header-services{
+	background: url("../img/servicefin.png") center no-repeat;
+  	background-size: cover;
+  	height: 280px;
+}
+
+.upper{
+	text-transform: uppercase;
+}
+
+.a-null-sector{
+	color: #333;
+}
+
+.a-null-sector:hover{
+	color: #f1c40f;
+}

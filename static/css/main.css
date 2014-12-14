@@ -1,0 +1,310 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+/* font customize */
+
+@font-face {
+  font-family: 'futurastdbook';
+    src: url('../fonts/futurastd-book-webfont.eot'); /* Para Internet Explorer */
+    src: local('futurastdbook'), url('../fonts/Futura-Std-Book_19044.ttf') format('truetype');
+}
+
+.font-futurastd{
+  font-family: 'futurastdbook', 'Source Sans Pro', sans-serif;
+  font-size: 16px;
+  color: #37424A;
+}
+
+.source-sans-pro{
+  color: #37424A;
+}
+
+.source-sans-pro-2{
+  color: #455560;
+}
+
+
+
+body{
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+	padding: 0;
+	margin: 0;
+}
+
+a:hover{
+  text-decoration: none;
+}
+
+.a-null:hover{
+  color: #f1c40f;
+}
+
+.relleno-both{
+  padding: 0 5em;
+}
+
+.medio{
+  margin-left: 3em;
+  margin-right: 3em;
+}
+
+.cont-logo-super,
+.cont-logo-derecho {
+  padding: 0.5em 0;
+  
+}
+
+.cont-logo-super {
+  left: 0;
+}
+
+.cont-logo-super img{
+  width: 292px;
+  height: 38px;
+}
+
+.cont-logo-derecho {
+  right: 0;
+}
+
+.logoderecho{
+	height: 32px;
+	width: 150px;
+  float: right;
+}
+
+#footer{
+  padding: 3.7em 0;
+  background-color: #455560;
+}
+
+/* Navbar Customzado */
+.navbar-default{
+  background-color: #455560;
+  border-color: rgba(231, 231, 231, 0);
+}
+  
+.navbar-default .navbar-nav li a{
+  color: white;
+}
+  
+.navbar-default .navbar-nav li a:hover{
+  color: #f1c40f;
+}
+
+.navbar-default .navbar-nav li .activo{
+  color: #f1c40f;
+}
+
+.navbar-default .navbar-toggle:hover  {
+background-color: #2D2A2A;
+}
+
+ .navbar-default .navbar-toggle:focus{
+  color: #f1c40f;
+}
+
+.navbar-default .navbar-toggle {
+border-color: #6F6D6D;
+}
+
+.navbar-default .navbar-brand{
+  display: none;
+}
+
+
+
+/* ----------------- */
+
+.bg-color-sunflower{
+  background-color: #f1c40f;
+}
+
+.bg-color-clouds{
+  background-color: #ecf0f1;
+}
+
+.title-especial{
+  font-size: 17px;
+  color: #37424A;
+}
+
+.bold-900{
+  font-weight: 900 !important;
+}
+
+.title-especial-2{
+  font-weight: bold;
+  font-size: 17px;
+}
+
+.font-size-4-3{
+
+  font-size: 4.3em;
+}
+
+.font-size-3{
+
+  font-size: 3em;
+}
+
+.font-size-2{
+  font-size: 2em;
+}
+
+.secciones{
+  padding: 2.45em 0;
+}
+
+.color-texto-sunflower{
+  color: #edb742;
+}
+
+.margen-top-dos{
+  margin-top: 2em;
+}
+
+  
+.margen-top-uno{
+  margin-top: 1em; 
+}
+
+.inner-both-uno{
+  padding: 2em 2em;
+}
+
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus{
+  background-color: rgba(231, 231, 231, 0);
+  color: white;
+}
+
+.dropdown-menu>li>a{
+  color: #34495e !important;
+}
+
+.dropdown-menu>li>a:hover{
+  background-color: #f1c40f;
+}
+
+
+
+.colorFix{
+  color: white;
+}
+
+.colorFix>a:hover{
+  color: #f1c40f;
+}
+
+
+
+/* Media Queries */
+@media screen and (max-width: 991px){
+  .dropdown-menu>li>a{
+    color: #f1c40f !important;
+  }
+
+  .dropdown-menu>li>a:hover{
+    background-color: #f1c40f !important;
+    color: #34495e !important;
+  }
+
+  .dropdown-menu>li{
+    border-top: 1px solid #6F6D6D;
+  }
+
+  .relleno-both{
+    padding: 0 2em;
+  }
+  
+  .li-mobile:first-child{
+    border-top: 0px;
+  }
+
+  .li-mobile{
+    border-top: 1px solid #6F6D6D;
+  }
+
+  .navbar-default .navbar-collapse, .navbar-default .navbar-form {
+   border-color: #6F6D6D;
+   border-top: 1px solid #6F6D6D;
+  }
+
+  .navbar-default .navbar-brand{
+    display: block;
+    position: absolute;
+
+  }
+
+  .navbar-default .navbar-brand>img{
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 292px;
+  }
+
+  .cont-logo-super{
+    display: none;
+  }
+
+  .container-responsive{
+    width: 85%;
+    margin: 0 auto;
+  }
+
+  .container-responsive-2{
+    width: 91%;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+}
+
+@media screen and (max-width: 480px){
+  .navbar-default .navbar-brand>img{
+    width: 292px;
+  }
+
+  .font-size-4-3{
+    font-size: 2.8em;
+  }
+
+  .font-size-3{
+    font-size: 2em;
+  }
+
+  #footer{
+    padding: 1.5em 0;
+    font-size: 0.8em;
+  }
+
+  .navbar-default .navbar-toggle:focus{
+    background-color: #2D2A2A;
+  }
+
+
+}
+
+
+/* others media queries */
+@media screen and (max-width: 1200px){
+  .cont-logo-derecho{
+    display: none;
+  }
+
+}
+
+

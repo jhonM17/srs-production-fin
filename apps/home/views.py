@@ -4,7 +4,7 @@ from django.views.generic import TemplateView, ListView
 from django.template import RequestContext
 from apps.projects.models import Proyecto
 from apps.sectors.models import Sector
-from apps.team.models import Miembro
+from apps.team.models import Member
 from .models import TextoServicios, TextoProyectos
 from django.http import HttpResponse
 from django.core.mail import send_mail
@@ -21,8 +21,8 @@ def HomeView(request):
 class GroupView(ListView):
 
 	template_name = 'group.html'
-	model = Miembro
-	context_object_name = 'miembros'
+	model = Member
+	context_object_name = 'members'
 
 def ExpertiseView(request):
 	text_services = TextoServicios.objects.all()
@@ -71,8 +71,7 @@ class SendingCareersView(TemplateView):
 
 		send_mail(
 			'hola careers', 
-			'Name: '+name+'\nLastname: '+lastname+'\nAddress: '+address, 
-			settings.EMAIL_HOST_USER,[email], 
+			'Name: '+name+'\nLastname: '+lastname+'\nAddress: '+address, [email], settings.EMAIL_HOST_USER, 
 			fail_silently=False)
 		
 

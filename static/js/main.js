@@ -4,9 +4,7 @@ $(document).on('ready', url);
 function url(valor){
     var href = $(location).attr('href');
 
-    console.log(href);
-
-    if(href=='http://localhost:8000/'){
+    if(href=='http://pyracabados.com/'){
     	$('.navbar-default .navbar-nav li a').eq(0).css({'color':'#f1c40f'});
     	$('.navbar-default .navbar-nav li a').eq(1).addClass('colorFix');
     	$('.navbar-default .navbar-nav li a').eq(2).addClass('colorFix');

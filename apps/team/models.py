@@ -1,22 +1,18 @@
 from django.db import models
 
-# Create your models here.
+# Create your models hereT
 
-class RedSocial(models.Model):
+class Member(models.Model):
 
-	red = models.CharField(max_length=100)
-
-	def __unicode__(self):
-		return self.red
-
-class Miembro(models.Model):
-
-	nombre = models.CharField(max_length=45)
-	cargo = models.CharField(max_length=45)
+	name = models.CharField(max_length=45)
+	office = models.CharField(max_length=45)
 	bio = models.TextField()
-	imagen = models.ImageField(upload_to="team", null=False, blank=True)
-	redes_sociales = models.ManyToManyField(RedSocial)
+	image = models.ImageField(upload_to="team", null=False, blank=True)
+	facebook = models.CharField(max_length=100, blank=True)
+	twitter = models.CharField(max_length=100, blank=True)
+	google = models.CharField(max_length=100, blank=True)
 
 	def __unicode__(self):
-		return self.nombre
+		return self.name
+		
 

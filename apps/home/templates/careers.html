@@ -16,7 +16,10 @@
 				<h1 class="font-size-4-3"><strong class="bold-900">CAREERS<span class="color-texto-sunflower">.</span></strong></h1>
 			</div>
 			<div class="col-lg-6 col-md-12 col-sm-12" id="cont-img-careers">
-				<img src="{% static 'img/carrersfin.png' %}" width="100%" height="175px" class="img-contact-careers">
+				<div width="100%" class="img-contact">
+					
+				</div>
+				
 			</div>
 		</div>
 	</div>
@@ -121,7 +124,10 @@ $('.btn-default-customize').click(function(){
 	$.ajax({
 		data: careersData,
 		url: '/send-careers-email/',
-		type: 'POST'
+		type: 'POST',
+		success: function(data){
+			console.log(data);
+		}
 	});
 });
 

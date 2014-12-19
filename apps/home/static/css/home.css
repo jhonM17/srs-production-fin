@@ -196,6 +196,25 @@
   border-radius: 3px;
 }
 
+.img-contact-careers{
+  background: url('../img/portada.jpg');
+  background-size: cover;
+  height: 180px;
+}
+
+.img-contact{
+  background: url('../img/carrersfin.png');
+  background-size: cover;
+  height: 180px;
+}
+
+.about-img-cont{
+  background: url('../img/groupfin.png');
+  height: 320px;
+  background-size: cover;
+}
+
+
 
 /* Media Queries home */
 @media screen and (min-width: 768px){
@@ -329,13 +348,24 @@
           margin-left: 0;
         }
 
-  
+  .img-contact-careers, .img-contact{
+    height: 200px !important;
+  }
+
+
 
 }
 
 /* Media querie de 480 a menos*/
 @media screen and (max-width: 480px){
  
+  .about-img-cont{
+    height: 180px !important;
+  }
+
+  .img-contact-careers, .img-contact{
+    height: 160px !important;
+  }
 
   .imagen-responsiva{
     height: 200px !important;
@@ -418,6 +448,10 @@
 @media screen and (max-width: 1024px) and (min-width: 768px){
   #adorno{
     display: none;
+  }
+
+  .img-contact-careers, .img-contact{
+    height: 230px !important;
   }
 
   .titulo-responsive{
@@ -631,6 +665,36 @@
   .row-customize{
           margin-left: 0;
         }
+
+  .about-img-cont{
+    height: 350px;
+  }
+
+
+}
+
+@media screen and (max-width: 884px) and (min-width: 768px){
+  .about-img-cont{
+    height: 300px !important;
+  }
+}
+
+@media screen and (max-width: 767px) and (min-width: 656px){
+  .about-img-cont{
+    height: 280px !important;
+  }
+}
+
+@media screen and (max-width: 656px) and (min-width: 560px){
+  .about-img-cont{
+    height: 250px !important;
+  }
+}
+
+@media screen and (max-width: 559px) and (min-width: 480px){
+  .about-img-cont{
+    height: 220px !important;
+  }
 }
 
 @media screen and (max-width: 1270px){
@@ -646,7 +710,7 @@
 }
 
 @media screen and (max-width: 1199px){
-  #title-careers, #cont-img-careers{
+  #title-careers, #cont-img-careers, #cont-team, #title-team{
     border-left: 0px;
     padding-left: 15px;
     text-align: justify;
@@ -655,11 +719,23 @@
     border-bottom: 1px solid #d9dada;
   }
 
-  #cont-img-careers{
+  #cont-img-careers, #cont-team{
     height: auto;
   }
 
-  #title-careers{
+  .img-contact-careers, .img-contact{
+    height: 250px;
+  }
+
+  .about-img-cont{
+    height: 300px;
+  }
+
+  #title-team{
+    padding-top: 0 !important;
+  }
+
+  #title-careers, #title-team{
     border-bottom: 0px;
     padding-bottom: 1em;
     text-align: center;
@@ -685,9 +761,27 @@
   }
 }
 
+
+@media screen and (max-width: 1056px) and (min-width: 992px){
+  .about-img-cont{
+    height: 280px;
+  }
+}
+
 @media screen and (max-width: 991px){
   .img-responsive-2{
     width: 100%;
     height: auto;
+  }
+
+  .col-sm-xs-customize{
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+}
+
+@media screen and (max-width: 1150px) and (min-width: 992px){
+  .relleno-both{
+    padding: 0;
   }
 }

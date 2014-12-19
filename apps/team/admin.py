@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import Miembro, RedSocial
+from .models import Member
 
 # Register your models here.
 
-admin.site.register(Miembro)
-admin.site.register(RedSocial)
+admin.site.register(Member)
+

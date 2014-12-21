@@ -4,6 +4,7 @@
 
 {% block css %}
 
+
 <link rel="stylesheet" href="{% static 'css/sectors.css' %}">
 <style>
 	.relleno-both-lateral-3{
@@ -44,40 +45,40 @@
 			</div>
 			
 
-			{% for proyecto in proyectos %}
+			{% for project in projects %}
 
-			{% ifequal proyecto.sector.slug s.slug%}
+			{% ifequal project.sector.slug s.slug%}
 			<div class="row margen-top-dos proyecto">
 				<div class="col-md-12">
-					<p class="color-texto-sunflower sector-text-responsive" style="font-size:30px">{{proyecto.nombre_proyecto}}</p>
-					<h3 class="sector-text-responsive-2" style="font-size:30px; color:#37424A">{{proyecto.contenido_proyecto}}</h3>
-					<div class="row" style="margin-top:18px">
-						<div class="col-md-5" >
-							<img src="{{MEDIA_URL}}{{proyecto.imagen}}" class="img-proyecto" width="100%" height="">
+					<p class="color-texto-sunflower sector-text-responsive" style="font-size:30px">{{project.name}}</p>
+					<h3 class="sector-text-responsive-2" style="font-size:30px; color:#37424A">{{project.description}}</h3>
+					<div class="row" style="margin-top:18px;">
+						<div class="col-md-5 col-md-5-customize" >
+							<img src="{{MEDIA_URL}}{{project.image}}" class="img-proyecto" width="100%" height="">
 						</div>
-						<div class="col-md-7 inner-both-uno detalle-proyecto" style="background-color: #f5f5f5;">
+						<div class="col-md-7 inner-both-uno detalle-proyecto">
 							<div class="row ">
 								<div class="col-md-12">
 									<h4 class="color-texto-sunflower">NAME OF PROJECT</h4>
-									<p STYLE="font-size:15px">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam quod corrupti animi nisi veniam accusamus, ducimus blanditiis saepe voluptatibus ipsam quam perspiciatis .</p>
+									<p STYLE="font-size:15px">{{project.name}}</p>
 								</div>
 							</div>
 							<div class="row margen-top-uno">
 								<div class="col-md-12">
 									<h4 class="color-texto-sunflower">LOCATION</h4>
-									<p STYLE="font-size:15px">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+									<p STYLE="font-size:15px">{{project.location}}</p>
 								</div>
 							</div>
 							<div class="row margen-top-uno">
 								<div class="col-md-12">
 									<h4 class="color-texto-sunflower">TOTAL VALUE</h4>
-									<p STYLE="font-size:15px">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+									<p STYLE="font-size:15px">{{project.total_value}}</p>
 								</div>
 							</div>
 							<div class="row margen-top-uno">
 								<div class="col-md-12">
 									<h4 class="color-texto-sunflower">CONSTRUCTION PERIOD</h4>
-									<p STYLE="font-size:15px">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+									<p STYLE="font-size:15px">{{project.construction_period}}</p>
 								</div>
 							</div>
 						</div>
@@ -105,9 +106,22 @@
 
 <script>
 	$(document).ready(function(){
+		resizeWindow();
+	});
+
+	$(window).on('resize', resizeWindow);
+
+	function resizeWindow(){
+		var windowSize = $(window).width()
+		console.log(windowSize)
 		var altura = $('.detalle-proyecto').height();
 		$('.img-proyecto').attr('height', altura+56);
-	});
+
+		if(windowSize<=1009){
+			var altura = $('.detalle-proyecto').height();
+			$('.img-proyecto').attr('height', '230px');
+		}
+	}
 	
 </script>
 

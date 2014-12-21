@@ -11,32 +11,19 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Miembro',
+            name='Member',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('nombre', models.CharField(max_length=45)),
-                ('cargo', models.CharField(max_length=45)),
+                ('name', models.CharField(max_length=45)),
+                ('office', models.CharField(max_length=45)),
                 ('bio', models.TextField()),
-                ('imagen', models.ImageField(upload_to=b'team', blank=True)),
+                ('image', models.ImageField(upload_to=b'team', blank=True)),
+                ('facebook', models.CharField(max_length=100, blank=True)),
+                ('twitter', models.CharField(max_length=100, blank=True)),
+                ('google', models.CharField(max_length=100, blank=True)),
             ],
             options={
             },
             bases=(models.Model,),
-        ),
-        migrations.CreateModel(
-            name='RedSocial',
-            fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('red', models.CharField(max_length=100)),
-            ],
-            options={
-            },
-            bases=(models.Model,),
-        ),
-        migrations.AddField(
-            model_name='miembro',
-            name='redes_sociales',
-            field=models.ManyToManyField(to='team.RedSocial'),
-            preserve_default=True,
         ),
     ]

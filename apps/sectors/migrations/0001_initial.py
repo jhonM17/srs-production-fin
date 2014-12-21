@@ -7,7 +7,6 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('projects', '0001_initial'),
     ]
 
     operations = [
@@ -18,7 +17,6 @@ class Migration(migrations.Migration):
                 ('nombre_sector', models.CharField(max_length=100)),
                 ('slug', models.SlugField(unique=True, max_length=250, editable=False)),
                 ('descripcion', models.TextField()),
-                ('proyectos', models.ManyToManyField(to='projects.Proyecto')),
             ],
             options={
             },

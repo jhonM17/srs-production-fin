@@ -26,7 +26,9 @@
   color: #455560;
 }
 
-
+.mini-logo{
+  display: none;
+}
 
 body{
 	font-family: 'Source Sans Pro', sans-serif;
@@ -257,6 +259,10 @@ border-color: #6F6D6D;
     width: 292px;
   }
 
+  .mini-logo{
+  display: none !important;
+}
+
   .cont-logo-super{
     display: none;
   }
@@ -296,6 +302,16 @@ border-color: #6F6D6D;
     background-color: #2D2A2A;
   }
 
+  .logo-mini-padre{
+    display: none !important;
+  }
+
+  .mini-logo{
+    display: inherit !important;
+    width: 190px !important;
+  }
+
+
 
 }
 
@@ -305,6 +321,10 @@ border-color: #6F6D6D;
   .cont-logo-derecho{
     display: none;
   }
+
+  .mini-logo{
+  display: none;
+}
 
 }
 

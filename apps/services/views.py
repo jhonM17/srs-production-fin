@@ -13,9 +13,9 @@ class ServicesView(TemplateView):
 	template_name = "services.html"
 
 def ServicesView(request):
-	sectores = Sector.objects.all()
+	sectors = Sector.objects.all()
 	servicios = Servicio.objects.all()
 	e_licencias = Entidad.objects.all()
 	awards = Award.objects.all()
 	text_services = TextoServicios.objects.all()
-	return render_to_response('services.html',{'sectores': sectores,'servicios':servicios, 'e_licencias': e_licencias, 'awards':awards, 'text_services':text_services}, context_instance=RequestContext(request))
+	return render_to_response('services.html',{'sectors': sectors,'servicios':servicios, 'e_licencias': e_licencias, 'awards':awards, 'text_services':text_services}, context_instance=RequestContext(request))

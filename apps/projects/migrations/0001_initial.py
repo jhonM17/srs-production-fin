@@ -7,16 +7,21 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
+        ('sectors', '0001_initial'),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Proyecto',
+            name='Project',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('nombre_proyecto', models.CharField(max_length=45)),
-                ('contenido_proyecto', models.TextField(max_length=200)),
-                ('imagen', models.ImageField(upload_to=b'media', blank=True)),
+                ('name', models.CharField(max_length=100)),
+                ('description', models.TextField()),
+                ('image', models.ImageField(upload_to=b'media', blank=True)),
+                ('location', models.CharField(max_length=100)),
+                ('total_value', models.CharField(max_length=45)),
+                ('construction_period', models.CharField(max_length=45)),
+                ('sector', models.ForeignKey(to='sectors.Sector')),
             ],
             options={
             },

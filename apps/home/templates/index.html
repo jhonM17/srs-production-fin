@@ -66,16 +66,16 @@
 		</div>
 	</div>
 	
-	<div class="contenedor-proyectos-true container-responsive-2">
-		{% if proyectos %}
+	<div class="contenedor-proyectos-true">
+		{% if projects %}
 
-				{% for proyecto in proyectos %}
-				<div class="col-md-4 col-xs-6 col-sm-4 margen-bottom-medio">
+				{% for project in projects %}
+				<div class="col-md-6 col-xs-12 col-sm-6 margen-bottom-medio">
 				    <figure>
-						<a href="sectors/{{proyecto.sector.slug}}"><img src="{{MEDIA_URL}}{{proyecto.imagen}}" width="100%" class="img-responsive rounded"></a>
+						<a href="sectors/{{project.sector.slug}}"><img src="{{MEDIA_URL}}{{project.image}}" width="298px" class="img-proy"></a>
 					</figure>
-				    <p class="color-texto-sunflower nombre-proyecto-key">
-						<b>{{proyecto.nombre_proyecto}}</b>
+				    <p class="color-texto-sunflower nombre-proyecto-key" style="font-size:20.5px;">
+						{{project.name}}
 					</p>
 				</div>
 
@@ -94,24 +94,24 @@
 	
 
 	<div class="slider-principal-true">
-		{% if proyectos %}
+		{% if projects %}
 		<div class="banner">
 
 			<ul>
 			    
 					
-						{% for proyecto in proyectos %}
+						{% for project in projects %}
 							{% if forloop.counter|add:"-1"|divisibleby:"4" %}
 							<li>
 							{% endif %}
 						
 				    		<div class="col-md-3 relleno-lateral-p">
 				    			<figure class="contenedor-imagen">
-						        	<a href="sectors/{{proyecto.sector.slug}}"><img src="{{MEDIA_URL}}{{proyecto.imagen}}" class="img-slider"></a>
+						        	<a href="sectors/{{project.sector.slug}}"><img src="{{MEDIA_URL}}{{project.image}}" class="img-slider"></a>
 
 						        </figure>
 				        		<p class="color-texto-sunflower" style="font-size:20.5px; padding-left:17px">
-						        	{{proyecto.nombre_proyecto}}
+						        	{{project.name}}
 						        	
 						        </p>
 							</div>
@@ -168,6 +168,7 @@
 	        unslider.data('unslider')[fn]();
 	    });
 
+	    imgProyecto();
 	    redimensionar();
 
 	    $(".contenedor-imagen").mouseenter(function() {
@@ -180,11 +181,19 @@
 
 	});
 
+	function imgProyecto(){
+		$('.contenedor-imagen img').width('298px')
+		$('.contenedor-imagen img').height('200px')
+	}
+
 	$(window).on('resize', redimensionar);
 
 	function redimensionar(){
 		var tamWindow = $(window).width()
 		$('#subheader-true>.row').width(tamWindow);
+
+		var unslider = $('.banner').unslider();
+    
 	}
 
 

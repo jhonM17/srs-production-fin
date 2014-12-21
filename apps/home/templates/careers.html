@@ -98,6 +98,7 @@ $('.btn-default-customize').click(function(){
 	}
 
 	$.ajaxSetup({ 
+			 data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
 		     beforeSend: function(xhr, settings) {
 		         function getCookie(name) {
 		             var cookieValue = null;
@@ -127,6 +128,7 @@ $('.btn-default-customize').click(function(){
 		type: 'POST',
 		success: function(data){
 			console.log(data);
+			$('.form-control').val('');
 		}
 	});
 });

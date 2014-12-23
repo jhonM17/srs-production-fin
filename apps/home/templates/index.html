@@ -71,7 +71,7 @@
 
 				{% for project in projects %}
 				<div class="col-md-6 col-xs-12 col-sm-6 margen-bottom-medio">
-				    <figure>
+				    <figure id="proy">
 						<a href="sectors/{{project.sector.slug}}"><img src="{{MEDIA_URL}}{{project.image}}" width="298px" class="img-proy"></a>
 					</figure>
 				    <p class="color-texto-sunflower nombre-proyecto-key" style="font-size:20.5px;">
@@ -187,6 +187,7 @@
 	}
 
 	$(window).on('resize', redimensionar);
+	$(window).on('resize', redimensionarSlider);
 
 	function redimensionar(){
 		var tamWindow = $(window).width()
@@ -194,6 +195,14 @@
 
 		var unslider = $('.banner').unslider();
     
+	}
+
+	function redimensionarSlider(){
+		$('.slider-principal-true').hide();
+		$('.contenedor-proyectos-true').show();
+		$('.contenedor-proyectos-true').css({'overflow':'hidden'});
+		$('.key').css({'text-align':'center','padding-bottom':'0.3em'});
+		$('.contenedor-arrow').hide();
 	}
 
 

@@ -4,14 +4,14 @@ EMAIL_HOST_USER = "jhonazsh.17@gmail.com"
 EMAIL_HOST_PASSWORD = "octubre6"
 EMAIL_PORT = 587
 
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 from unipath import Path
 BASE_DIR = Path(__file__).ancestor(3)
 
 SECRET_KEY = '4b&f#3f0le-+u(c8u6+n!pe@6vp)&nbh!pj+8#_e8b=vs$gb-u'
 
 DJANGO_APPS = (
-            'django_admin_bootstrapped.bootstrap3',
-            'django_admin_bootstrapped',
+            'suit',
             'django.contrib.admin',
             'django.contrib.auth',
             'django.contrib.contenttypes',
@@ -21,7 +21,7 @@ DJANGO_APPS = (
         )
 
 THIRD_PARTY_APPS = (
-
+            
         )
 
 LOCAL_APPS = (

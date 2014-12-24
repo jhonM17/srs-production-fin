@@ -14,6 +14,7 @@ urlpatterns = patterns('',
     url(r'^sectors/', include('apps.sectors.urls')),
     url(r'^es/sectores/', include('apps.sectores.urls')),
     url(r'^services/', include('apps.services.urls')),
+    url(r'^es/servicios/', include('apps.servicios.urls')),
 
     url(r'^es/', include('apps.inicio.urls')),
 

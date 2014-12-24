@@ -5,7 +5,7 @@ from django.template import RequestContext
 from apps.projects.models import Project
 from apps.sectors.models import Sector
 from apps.team.models import Member
-from .models import TextoServicios, TextoProyectos
+from .models import TextServices, TextProjects
 from django.http import HttpResponse
 from django.core.mail import send_mail
 
@@ -25,8 +25,8 @@ class GroupView(ListView):
 	context_object_name = 'members'
 
 def ExpertiseView(request):
-	text_services = TextoServicios.objects.all()
-	text_projects = TextoProyectos.objects.all()
+	text_services = TextServices.objects.all()
+	text_projects = TextProjects.objects.all()
 	projects = Project.objects.all()
 	return render_to_response('expertise.html',{'text_services': text_services,'text_projects':text_projects, 'projects': projects}, context_instance=RequestContext(request))
 

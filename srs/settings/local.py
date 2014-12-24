@@ -11,7 +11,7 @@ TEMPLATE_DIRS = [BASE_DIR.child('templates')]
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'srs',
+        'NAME': 'srsdb',
         'USER': 'jhonazsh',
         'PASSWORD': 'medina11',
         'HOST': 'localhost',

@@ -1,0 +1,119 @@
+{% extends 'base2_es.html' %}
+
+{% load static from staticfiles %}
+
+{% block css %}
+	<link rel="stylesheet" href="{% static 'css/home.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<style>
+		.relleno-both-lateral-3{
+			padding-left: 5em !important;
+			padding-right: 0 !important;
+		}
+
+		.banner { position: relative; overflow: auto; }
+    	.banner li { list-style: none; }
+        .banner ul li { float: left; }
+        .banner ul {
+        	padding: 0;
+        	margin: 0 1px;
+        }
+
+        
+
+        
+	
+	
+	</style>
+	<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+{% endblock %}
+
+{% block main %}
+<section id="principal-group">
+	<div class="container-srs">
+		<div class="row">
+			<div class="col-lg-6 col-md-12 title-especial" id="title-team" style="padding-top:0.5em">
+				<h1 class="font-size-4-3"><strong class="bold-900">CONOCE<br>EL EQUIPO<span class="color-texto-sunflower">.</span></strong></h1>
+			</div>
+			<div class="col-lg-6 col-md-12 text-justify" id='cont-team'>
+				Todo el equipo de SRS se compromete a operar de una manera ética profesional- . Valoramos la integridad de las relaciones comerciales con los clientes y socios de la industria . Nos esforzamos por ofrecer soluciones de ingeniería innovadoras y efectivas . Nuestro talento y la tecnología garantizar la eficiencia en la ejecución de los resultados . En SRS manejamos plazos y control de costes con precisión , dando a nuestro equipo una ventaja competitiva firme.
+			</div>
+		</div>
+	</div>
+</section>
+<section id="slider-team">
+	
+	<div class="container-srs">
+
+		        	<div class="row">
+						{% for member in members %}	
+
+		        		<div class="col-md-3 col-xs-6">
+		        			<div class="thumbnail">
+						      <img src="{{MEDIA_URL}}{{member.image}}" >
+						      <div class="caption">
+						        <h5 class="text-center" style="color: black">{{member.name}}</h5>
+						        <h5 class="text-center margen-top-medio" style="color:#aeaeae;">{{member.office}}</h5>
+						        <p class="text-center margen-top-medio" style="color: #37424A">{{member.bio|slice:":75"}} ... <!--<a href="#">Ver más</a></p>-->
+						        <p class="text-center margen-top-medio">
+						        	
+						        	
+						        		{% if "facebook" in member.facebook %}
+						        			<a href="{{member.facebook}}" target="_black" class="btn btn-default btn-xs" role="button">
+						        				<span class="icon-facebook"></span>
+						        			</a>
+						        		{% endif %}
+						        		{% if "google" in member.google %}
+						        			<a href="{{member.google}}" target="_black" class="btn btn-default btn-xs" role="button">
+						        				<span class="icon-googleplus"></span>
+						        			</a>
+						        		{% endif %}
+						        		{% if "twitter" in member.twitter %}
+						        			<a href="{{member.twitter}}" target="_black" class="btn btn-default btn-xs" role="button">
+						        				<span class="icon-twitter"></span>
+						        			</a>
+						        		{% endif %}
+						        		
+						        	</a> 
+						        	
+						        </p>
+						      </div>
+						    </div>
+		        		</div>
+
+		        		{% empty %}
+		        		<div class="alert alert-warning text-center" role="alert">
+							<b>Empty list of Team Members!</b> - <a href="/admin">Add Team Members.</a>
+						</div>
+
+		        		{% endfor%}
+
+		        		
+		        	</div>
+		        	
+
+		       
+		
+	<div>
+	
+</section>
+
+
+<section id="about-cont">
+	<div class="container-srs">
+		<div class="row" id="about">
+			<div class="col-lg-5 col-md-6 col-sm-12 col-xs-12 title-especial" id="title-about">
+				<h1 class="font-size-4-3"><strong class="bold-900">NOSOTROS<span class="color-texto-sunflower">.</span></strong></h1>
+			</div>
+			<div class="col-lg-7 col-md-6 col-sm-12 col-xs-12">
+				<figure class="about-img-cont" width="100%">
+					
+				</figure>
+				<p class="margen-top-dos text-justify">
+					Talento. Integridad . Innovación . En funcionamiento desde 1995 , SRS Engineering, Inc. ha ganado una reputación como uno de los de mejor desempeño en empresas consultoras de ingeniería civil . Ajuste de nuestros estándares con un compromiso con la excelencia , SRS distingue permaneciendo firmemente centrado en ofrecer la más alta calidad de servicio y suministro de soluciones innovadoras en todos los aspectos de diseño de ingeniería y gestión de la construcción . Nos especializamos en la aviación , las carreteras y transporte , sistemas de agua y aguas residuales , sistemas de drenaje , / Desarrollo Territorial del sitio , Estudios de Ingeniería Ambiental , Ingeniería Estructural , y de los servicios de la fase de construcción . Situado en el centro de Miami , SRS ha construido relaciones comerciales de larga data , manteniendo la integridad al frente de cada decisión de negocios . Un compromiso con la excelencia , la tecnología innovadora y un amplio conocimiento de la industria son los criterios que han establecido la empresa tanto en el sector público y privado en los Estados Unidos, el Caribe , Panamá y Ghana. Nuestra misión es simple: para superar a nuestros clientes todas las expectativas .
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}

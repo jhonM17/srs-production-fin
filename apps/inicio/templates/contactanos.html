@@ -1,0 +1,192 @@
+{% extends 'base2_es.html' %}
+
+{% load static from staticfiles %}
+
+{% block css %}
+	<link rel="stylesheet" href="{% static 'css/home.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	
+{% endblock %}
+
+{% block  main %}
+<section id="principal-careers">
+	<div class="container-srs">
+		<div class="row">
+			<div class="col-lg-6 col-md-12 col-sm-12 title-especial title-especial-responsive" id="title-careers">
+				<h1 class="font-size-4-3"><strong class="bold-900">CONTÁCTANOS<span class="color-texto-sunflower">.</span></strong></h1>
+			</div>
+			<div class="col-lg-6 col-md-12 col-sm-12" id="cont-img-careers">
+				<div width="100%"class="img-contact-careers">
+					
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="content-careers">
+	<div class="container-srs">
+		<!--<div class="row">
+			<div class="col-md-8 col-md-offset-2 text-center" id="subtitle-careers">
+				<h2 class="font-size-3 title-especial"><strong>LOOKING FOR NEW <span class="color-texto-sunflower">TALENT</span></strong></h2>
+			</div>
+		</div>-->
+		<div class="row">
+			<div class="col-md-12">
+				<p class="text-justify font-futurastd">
+					Conócenos ! Conozca nuestras capacidades ... experimentar la diversidad en nuestro equipo. ¿Somos la solución a su proyecto? ¿Tenemos la respuesta a su problema? ¿Quieres colaborar con nosotros? Esperamos contar con su presencia !
+				</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3 margen-top-dos">
+				<div class="form-horizontal">
+				  <div class="form-group">
+				    <div class="col-md-12">
+				    	<label for="interest">ESTOY INTERESADO EN<span class="color-texto-sunflower">*</span></label>
+				      <input type="text" class="form-control" id="interested">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <!--<label for="firstname">First Name</label>-->
+				    <div class="col-md-6">
+				    	<label for="interest">NOMBRE</label>
+				      <input type="text" class="form-control" id="first-name">
+				    </div>
+				 
+				    <div class="col-md-6">
+				    	<label for="interest">APELLIDO</label>
+				      <input type="text" class="form-control" id="last-name">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <!--<label for="firstname">First Name</label>-->
+				    <div class="col-xs-6">
+				    	<label for="emailaddress">EMAIL</label>
+				      <input type="text" class="form-control" id="email">
+				    </div>
+				  
+				    <div class="col-xs-6">
+				    	<label for="telephone">TELÉFONO</label>
+				      <input type="text" class="form-control" id="telephone">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <div class="col-xs-6">
+				    	<label for="company">COMPAÑIA</label>
+				      <input type="text" class="form-control" id="company">
+				    </div>
+				 
+				    <div class="col-xs-6">
+				    	<label for="address">DIRECCIÓN</label>
+				      <input type="text" class="form-control" id="address">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <div class="col-xs-4">
+				    	<label for="city">CIUDAD<span class="color-texto-sunflower">*</span></label>
+				    </div>
+				    <div class="col-xs-4">
+				    	<label for="state">ESTADO</label>
+				    </div>
+				    <div class="col-xs-4">
+				    	<label for="country">PAÍS</label>
+				    </div>
+				    <div class="col-xs-4">
+				      <input type="text" class="form-control" id="city">
+				    </div>
+				    <div class="col-xs-4">
+				      <input type="text" class="form-control" id="state">
+				    </div>
+				    <div class="col-xs-4">
+				      <input type="text" class="form-control" id="country">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				  	<div class="col-xs-12">
+				    	<label for="Learn">¿CÓMO APRENDER SOBRE NUESTRO SITIO?</label>
+					</div>
+				    <div class="col-xs-12">
+				      <textarea class="form-control" rows="3" id="how"></textarea>
+				    </div>
+				  </div>
+				  <div class="form-group">
+				  	<div class="col-xs-12">
+				    	<label for="comments">COMENTARIOS/PREGUNTAS<span class="color-texto-sunflower">*</span></label>
+				    </div>
+				    <div class="col-xs-12">
+				      <textarea class="form-control" rows="3" id="comments"></textarea>
+				    </div>
+				  </div>					  		  
+				  <div class="form-group">
+				    <div class="col-sm-offset-1 col-sm-10 text-center">
+				      <button class="btn btn-customize btn-default btn-default-customize"><b>ENVIAR</b></button>
+				    </div>
+				  </div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}
+
+{% block js %}
+
+<script>
+
+$('.btn-default-customize').click(function(){
+	var contactUsData = {
+		interested: $('#interested').val(),
+		firstname: $('#first-name').val(),
+		lastname: $('#last-name').val(),
+		email: $('#email').val(),
+		telephone: $('#telephone').val(),
+		company: $('#company').val(),
+		address: $('#address').val(),
+		city: $('#city').val(),
+		state: $('#state').val(),
+		country: $('#country').val(),
+		how: $('#how').val(),
+		comments: $('#comments').val()
+	}
+
+	console.log(contactUsData)
+
+	$.ajaxSetup({ 
+		     beforeSend: function(xhr, settings) {
+		         function getCookie(name) {
+		             var cookieValue = null;
+		             if (document.cookie && document.cookie != '') {
+		                 var cookies = document.cookie.split(';');
+		                 for (var i = 0; i < cookies.length; i++) {
+		                     var cookie = jQuery.trim(cookies[i]);
+		                     // Does this cookie string begin with the name we want?
+		                 if (cookie.substring(0, name.length + 1) == (name + '=')) {
+		                     cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+		                     break;
+		                 }
+		             }
+		         }
+		         return cookieValue;
+		         }
+		         if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+		             // Only send the token to relative URLs i.e. locally.
+		             xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+		         }
+		     } 
+		});
+
+	$.ajax({
+		data: contactUsData,
+		url: '/send-contact-us-email/',
+		type: 'POST'
+		
+	});
+});
+
+
+</script>
+
+{% endblock %}

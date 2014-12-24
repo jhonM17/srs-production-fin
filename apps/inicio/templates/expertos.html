@@ -1,0 +1,105 @@
+{% extends 'base2_es.html' %}
+
+{% load static from staticfiles %}
+
+{% block css %}
+	<link rel="stylesheet" href="{% static 'css/home.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<style>
+		.relleno-both-lateral-3{
+			padding-left: 5em !important;
+			padding-right: 0 !important;
+		}
+	</style>
+	<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>	
+{% endblock %}
+
+{% block main %}
+
+<header id="header-portada">
+	
+</header>
+
+<section>
+	<div class="container container-responsive">
+		<div class="row" style="margin-top:34px">
+			<div class="col-md-6 col-md-offset-3 text-center title-especial">
+				<p class="text-center">
+					<h1 class="font-size-3" >
+						<strong class="bold-900">EXPERTOS<span class="color-texto-sunflower">.</span></strong>
+					</h1>
+				</p>
+			</div>
+			<div class="col-md-12">
+				<p class="margen-top-uno text-justify">
+					Lo único que triunfa sobre el conocimiento es la experiencia. El equipo de gestión de SRS Ingeniería combinado representa más de 70 años de experiencia en ingeniería civil. Además de 20 años de experiencia operativa sobre el terreno , la Red está en su lugar para proporcionar soluciones innovadoras a sus clientes excepcionales . Las soluciones que se traducen en proyectos exitosos validados de manera eficiente .
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section>
+	<div class="container container-responsive">
+		<div class="row margen-top-dos">
+			<div class="col-md-6 col-xs-6">
+				<div class="figure">
+
+				</div>
+
+				<img src="{% static 'img/expertise-service.png' %}"  class="img-responsive-2"  width="555px" height="350px" >
+				<h1 class=" text-center margen-top-uno margen-responsive"><a href="/services" class="color-texto-sunflower a-null ">SERVICIOS</a></h1>
+				<p class="text-justify margen-top-uno">
+					{% if text_services %}
+						{% for text in text_services %}
+							{{text.contenido}}
+						{% endfor %}
+					{% else %}
+						<div class="alert alert-warning text-center" role="alert">
+							<b>Empty text for Services!</b> - <a href="/admin">Add text.</a>
+						</div>
+					
+					{% endif %}
+				</p>
+				<div class="lista margen-top-uno text-center list-responsive">
+					
+						<p>SERVICIOS OFRECIDOS</p>
+						<p>LICENCIAS Y CERTIFICACIONES</p>
+						<p>PREMIOS</p>
+					
+				</div>
+			</div>
+			<div class="col-md-6 col-xs-6">
+				<img src="{% static 'img/expertise-project.png' %}"  class="img-responsive-2" width="555px" height="350px" >
+				<h1 class="color-texto-sunflower text-center margen-top-uno margen-responsive">PROYECTOS</h1>
+				<p class="text-justify margen-top-uno">
+					{% if text_projects %}
+						{% for text in text_projects %}
+							{{text.contenido}}
+						{% endfor %}
+					{% else %}
+						<div class="alert alert-warning text-center" role="alert">
+							<b>Empty text for Projects!</b> - <a href="/admin">Add text.</a>
+						</div>
+					{% endif %}
+				</p>
+				<div class="lista margen-top-uno text-center list-responsive">
+						{% if projects %}
+							{% for project in projects %}
+								<p>{{project.name}}</p>
+							{% endfor %}
+						{% else %}
+							<div class="alert alert-warning text-center" role="alert">
+								<b>Empty list of Projects!</b> - <a href="/admin">Add Projects.</a>
+							</div>
+						
+						{% endif %}
+						
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% endblock %}

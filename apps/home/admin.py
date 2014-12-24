@@ -1,7 +1,9 @@
 from django.contrib import admin
-from .models import TextoServicios, TextoProyectos
+from .models import TextServices, TextProjects, TextServicesSpanish, TextProjectsSpanish
 
 # Register your models here.
 
-admin.site.register(TextoServicios)
-admin.site.register(TextoProyectos)
+admin.site.register(TextServices)
+admin.site.register(TextServicesSpanish)
+admin.site.register(TextProjects)
+admin.site.register(TextProjectsSpanish)

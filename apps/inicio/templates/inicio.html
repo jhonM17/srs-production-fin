@@ -1,0 +1,211 @@
+{% extends 'base_es.html' %}
+
+{% load static from staticfiles %}
+
+{% block css %}
+	<link rel="stylesheet" href="{% static 'css/home.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<style type="text/css">
+		.banner { position: relative; overflow: auto; }
+    	.banner li { list-style: none; }
+        .banner ul li { float: left; }
+        .banner ul {
+        	padding: 0;
+        	margin: 0 0px;
+        }
+
+        .contenedor-imagen{
+        	width: 100%;
+        	height: 200px;
+		    float:left;
+		    overflow:hidden;
+		    text-align:center;
+		}
+		 
+		.contenedor-imagen img{
+		    position: relative;
+		}
+
+        
+        
+	</style>
+{% endblock %}
+
+{% block main %}
+<header id="header-slider">
+
+	<!--<img src="{% static 'img/main-foto.jpg' %}" width="100%" height="575px" class="imagen-responsiva">-->
+
+	<div id="subheader">
+		<div id="subheader-true">
+			<div class="row row-customize" >
+				<div class="col-lg-4 col-md-3 " id="logo">
+					<img src="{% static 'img/srslogofin.png' %}" alt="">
+				</div>
+				<div class="col-lg-7 col-md-9 " id="texto-medio">
+					<div id="name" class="color-texto-blanco titulo-responsive">
+						<h2>ALTOS ESTANDARES EN INGENIERÍA</h2>
+						<h4>SERVICIO COMPLETO DE INGENIERÍA CIVIL</h4>
+					</div>
+					
+				</div>
+				<div class="col-lg-1 bg-color-sunflower" id="adorno">
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+
+<section id="slider-principal">
+	<div class="container container-responsive">
+		<div class="row">
+			<div class="col-md-12">
+				<h1 class="key">PROYECTOS CLAVE</h1>
+			</div>
+		</div>
+	</div>
+	
+	<div class="contenedor-proyectos-true">
+		{% if projects %}
+
+				{% for project in projects %}
+				<div class="col-md-6 col-xs-12 col-sm-6 margen-bottom-medio">
+				    <figure id="proy">
+						<a href="sectores/{{project.sector.slug}}"><img src="{{MEDIA_URL}}{{project.image}}" width="298px" class="img-proy"></a>
+					</figure>
+				    <p class="color-texto-sunflower nombre-proyecto-key" style="font-size:20.5px;">
+						{{project.name}}
+					</p>
+				</div>
+
+				{% endfor %}
+			{%else%}
+
+			<div class="alert alert-warning text-center" role="alert">
+				<b>Empty list of Key Projects!</b> - <a href="/admin">Add Projects.</a>
+			</div>
+
+			
+
+		{% endif %}
+	</div>
+
+	
+
+	<div class="slider-principal-true">
+		{% if projects %}
+		<div class="banner">
+
+			<ul>
+			    
+					
+						{% for project in projects %}
+							{% if forloop.counter|add:"-1"|divisibleby:"4" %}
+							<li>
+							{% endif %}
+						
+				    		<div class="col-md-3 relleno-lateral-p">
+				    			<figure class="contenedor-imagen">
+						        	<a href="sectores/{{project.sector.slug}}"><img src="{{MEDIA_URL}}{{project.image}}" class="img-slider"></a>
+
+						        </figure>
+				        		<p class="color-texto-sunflower" style="font-size:20.5px; padding-left:17px">
+						        	{{project.name}}
+						        	
+						        </p>
+							</div>
+						
+					
+						    	{% if forloop.counter|divisibleby:"4" %}
+								
+						    </li>
+						    
+						    {% endif %}
+
+						    
+			    {% endfor %}
+			    
+			</ul>
+			        			
+		</div>
+
+	</div>
+	<div class="contenedor-arrow">
+			<button href="#" class="unslider-arrow prev"><span class="icon-arrow-left"></span></button>
+			<button href="#" class="unslider-arrow next"><span class="icon-uniE601"></span></button>
+		</div>
+
+	{% else %}
+		<div class="alert alert-warning text-center" role="alert">
+			<b>Empty list of Key Projects!</b> - <a href="/admin">Add Projects.</a>
+		</div>
+
+	{% endif %}
+
+	
+	
+</section>
+
+
+
+
+
+{% endblock %}
+
+{% block js %}
+
+<script src="{% static 'js/vendor/unslider.min.js' %}"></script>
+<script type="text/javascript">
+	
+	$(function() {
+	    var unslider = $('.banner').unslider();
+    
+	    $('.unslider-arrow').click(function() {
+	        var fn = this.className.split(' ')[1];
+	        
+	        //  Either do unslider.data('unslider').next() or .prev() depending on the className
+	        unslider.data('unslider')[fn]();
+	    });
+
+	    imgProyecto();
+	    redimensionar();
+
+	    $(".contenedor-imagen").mouseenter(function() {
+	        $(this).find('img').animate({width:320,height:220,left:-20,top:-20, right:-20, bottom: -20});
+	        $(this).find('img').rotate({animateTo:7});
+	    }).mouseleave(function() {
+	        $(this).find('img').animate({width:298,height:200,left:0,top:0, right:0, bottom: 0});
+	        $(this).find('img').rotate({animateTo:0});
+	    });
+
+	});
+
+	function imgProyecto(){
+		$('.contenedor-imagen img').width('298px')
+		$('.contenedor-imagen img').height('200px')
+	}
+
+	$(window).on('resize', redimensionar);
+	$(window).on('resize', redimensionarSlider);
+
+	function redimensionar(){
+		var tamWindow = $(window).width()
+		$('#subheader-true>.row').width(tamWindow);
+
+		var unslider = $('.banner').unslider();
+    
+	}
+
+	function redimensionarSlider(){
+		$('.slider-principal-true').hide();
+		$('.contenedor-proyectos-true').show();
+		$('.contenedor-proyectos-true').css({'overflow':'hidden'});
+		$('.key').css({'text-align':'center','padding-bottom':'0.3em'});
+		$('.contenedor-arrow').hide();
+	}
+
+
+</script>
+
+{% endblock %}

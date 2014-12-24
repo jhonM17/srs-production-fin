@@ -2,18 +2,32 @@ from django.db import models
 
 # Create your models here.
 
-class TextoServicios(models.Model):
+class TextServices(models.Model):
 
-	contenido = models.TextField()
-
-	def __unicode__(self):
-		return self.contenido
-
-class TextoProyectos(models.Model):
-
-	contenido = models.TextField()
+	content = models.TextField()
 
 	def __unicode__(self):
-		return self.contenido
+		return self.content
+
+class TextServicesSpanish(models.Model):
+
+	content = models.TextField(help_text="Write Content in Spanish")
+
+	def __unicode__(self):
+		return self.content
+
+class TextProjects(models.Model):
+
+	content = models.TextField()
+
+	def __unicode__(self):
+		return self.content
+
+class TextProjectsSpanish(models.Model):
+
+	content = models.TextField(help_text="Write Content in Spanish")
+
+	def __unicode__(self):
+		return self.content
 
 

@@ -26,9 +26,11 @@ THIRD_PARTY_APPS = (
 
 LOCAL_APPS = (
             'apps.home',
+            'apps.inicio',
             'apps.projects',
             'apps.services',
             'apps.sectors',
+            'apps.sectores',
             'apps.team',
             'apps.licenses',
             'apps.awards',

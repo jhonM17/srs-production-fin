@@ -69,8 +69,8 @@
 				<div class="row">
 					{% for sector in sectors %}
 					<div class="col-md-6">
-						<h5 class="text-center title-especial-2 margen-top-uno upper"><a href="/sectors/{{sector.slug}}" class="a-null-sector"><span class="glyphicon glyphicon-link color-texto-sunflower"></span>&nbsp;&nbsp;&nbsp;{{sector.nombre_sector}}</a></h5>
-						<p class="text-justify">{{sector.descripcion}}</p>
+						<h5 class="text-center title-especial-2 margen-top-uno upper"><a href="/sectors/{{sector.slug}}" class="a-null-sector"><span class="glyphicon glyphicon-link color-texto-sunflower"></span>&nbsp;&nbsp;&nbsp;{{sector.name}}</a></h5>
+						<p class="text-justify">{{sector.description}}</p>
 					</div>
 
 					{% empty %}

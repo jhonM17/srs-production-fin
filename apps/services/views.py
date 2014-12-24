@@ -5,7 +5,7 @@ from apps.sectors.models import Sector
 from apps.services.models import Servicio
 from apps.licenses.models import Entidad
 from apps.awards.models import Award
-from apps.home.models import TextoServicios
+from apps.home.models import TextServices
 
 # Create your views here.
 class ServicesView(TemplateView):
@@ -17,5 +17,5 @@ def ServicesView(request):
 	servicios = Servicio.objects.all()
 	e_licencias = Entidad.objects.all()
 	awards = Award.objects.all()
-	text_services = TextoServicios.objects.all()
+	text_services = TextServices.objects.all()
 	return render_to_response('services.html',{'sectors': sectors,'servicios':servicios, 'e_licencias': e_licencias, 'awards':awards, 'text_services':text_services}, context_instance=RequestContext(request))

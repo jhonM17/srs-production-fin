@@ -9,9 +9,14 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
+
     url(r'^', include('apps.home.urls')),
-    url(r'^services/', include('apps.services.urls')),
     url(r'^sectors/', include('apps.sectors.urls')),
+    url(r'^es/sectores/', include('apps.sectores.urls')),
+    url(r'^services/', include('apps.services.urls')),
+
+    url(r'^es/', include('apps.inicio.urls')),
+
 )
 
 if settings.DEBUG:

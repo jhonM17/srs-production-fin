@@ -13,5 +13,5 @@ def SectorDetalleView(request, slug):
 	slugTrue = slug.split('/')[0]
 	s = Sector.objects.filter(slug=slugTrue)
 
-	return render_to_response('sector_detalle.html',{'projects': projects,'sector':s}, context_instance=RequestContext(request))
+	return render_to_response('sector_detail.html',{'projects': projects,'sector':s}, context_instance=RequestContext(request))
 

@@ -12,7 +12,7 @@ function url(valor){
     	$('.navbar-default .navbar-nav li a').eq(4).addClass('colorFix');
     }
 
-    if(href.indexOf('group')!=-1 ){
+    if(href.indexOf('group')!=-1 || href.indexOf('grupo')!=-1){
     	$('.navbar-default .navbar-nav li a').eq(1).css({'color':'#f1c40f'});
     	$('.navbar-default .navbar-nav li a').eq(0).addClass('colorFix');
     	$('.navbar-default .navbar-nav li a').eq(2).addClass('colorFix');
@@ -20,7 +20,7 @@ function url(valor){
     	$('.navbar-default .navbar-nav li a').eq(4).addClass('colorFix');
     }
 
-    if(href.indexOf('expertise')!=-1){
+    if(href.indexOf('expertise')!=-1 || href.indexOf('expertos')!=-1){
     	$('.navbar-default .navbar-nav li a').eq(2).css({'color':'#f1c40f'});
     	$('.navbar-default .navbar-nav li a').eq(0).addClass('colorFix');
     	$('.navbar-default .navbar-nav li a').eq(1).addClass('colorFix');
@@ -29,7 +29,7 @@ function url(valor){
 
     }
 
-    if(href.indexOf('contactus')!=-1){
+    if(href.indexOf('contactus')!=-1 || href.indexOf('contactanos')!=-1){
     	$('.navbar-default .navbar-nav li a').eq(3).css({'color':'#f1c40f'});
     	$('.navbar-default .navbar-nav li a').eq(2).addClass('colorFix');
     	$('.navbar-default .navbar-nav li a').eq(0).addClass('colorFix');
@@ -37,7 +37,7 @@ function url(valor){
     	$('.navbar-default .navbar-nav li a').eq(4).addClass('colorFix');
     }
 
-    if(href.indexOf('careers')!=-1){
+    if(href.indexOf('careers')!=-1 || href.indexOf('carreras')!=-1){
 		$('.navbar-default .navbar-nav li a').eq(4).css({'color':'#f1c40f'});
     	$('.navbar-default .navbar-nav li a').eq(2).addClass('colorFix');
     	$('.navbar-default .navbar-nav li a').eq(0).addClass('colorFix');

@@ -92,17 +92,17 @@
 		</div>
 
 		<div class="row margen-top-uno">
-			{% for e_licencia in e_licencias %}
+			{% for e_license in e_licenses %}
 			<div class="col-md-6 col-sm-6 col-xs-12 margen-top-uno">
 				<div class="media">
 				  <a class="pull-left" href="#">
-				    <img src="{{MEDIA_URL}}{{e_licencia.imagen}}" width="64px" style="margin-top:2em">
+				    <img src="{{MEDIA_URL}}{{e_license.image}}" width="64px" style="margin-top:2em">
 				  </a>
 				  <div class="media-body">
-				    <h4 class="media-heading"><b>{{e_licencia.nombre_entidad}}</b></h4>
+				    <h4 class="media-heading"><b>{{e_license.name_entity}}</b></h4>
 					
-					{% for licencia in e_licencia.licencias.all %}
-						<p>{{licencia.numero}} {{licencia.titulo}}</p>
+					{% for license in e_license.licenses.all %}
+						<p>{{license.number}} {{license.title}}</p>
 					{% endfor%}
 
 
@@ -136,7 +136,7 @@
 					    <img src="{{MEDIA_URL}}{{award.imagen}}" width="48px">
 					  </a>
 					  <div class="media-body">
-					    <p class="text-center">{{award.titulo}}</p>
+					    <p class="text-center">{{award.title}}</p>
 					    
 					  </div>
 					</div>

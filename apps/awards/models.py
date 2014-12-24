@@ -4,8 +4,16 @@ from django.db import models
 
 class Award(models.Model):
 
-	titulo = models.CharField(max_length=200)
-	imagen = models.ImageField(upload_to="awards", null=False, blank=True)
+	title = models.CharField(max_length=200)
+	image = models.ImageField(upload_to="awards", null=False, blank=True)
 
 	def __unicode__(self):
-		return self.titulo
+		return self.title
+
+class AwardSpanish(models.Model):
+
+	title = models.CharField(max_length=200, help_text="Write Title in Spanish")
+	image = models.ImageField(upload_to="premios", null=False, blank=True)
+
+	def __unicode__(self):
+		return self.title

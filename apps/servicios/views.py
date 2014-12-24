@@ -2,15 +2,15 @@ from django.shortcuts import render_to_response
 from django.views.generic import TemplateView
 from django.template import RequestContext
 from apps.sectors.models import SectorSpanish
-from apps.services.models import Servicio
-from apps.licenses.models import Entidad
-from apps.awards.models import Award
-from apps.home.models import TextServices
+from apps.services.models import ServiceSpanish
+from apps.licenses.models import EntitySpanish
+from apps.awards.models import AwardSpanish
+from apps.home.models import TextServicesSpanish
 
-def ServicesView(request):
-	sectors = Sector.objects.all()
-	servicios = Servicio.objects.all()
-	e_licencias = Entidad.objects.all()
-	awards = Award.objects.all()
-	text_services = TextServices.objects.all()
-	return render_to_response('services.html',{'sectors': sectors,'servicios':servicios, 'e_licencias': e_licencias, 'awards':awards, 'text_services':text_services}, context_instance=RequestContext(request))
+def ServicesViewSpanish(request):
+	sectors = SectorSpanish.objects.all()
+	services = ServiceSpanish.objects.all()
+	e_licenses = EntitySpanish.objects.all()
+	awards = AwardSpanish.objects.all()
+	text_services = TextServicesSpanish.objects.all()
+	return render_to_response('servicios.html',{'sectors': sectors,'services':services, 'e_licenses': e_licenses, 'awards':awards, 'text_services':text_services}, context_instance=RequestContext(request))

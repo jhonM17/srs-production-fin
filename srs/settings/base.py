@@ -29,6 +29,7 @@ LOCAL_APPS = (
             'apps.inicio',
             'apps.projects',
             'apps.services',
+            'apps.servicios',
             'apps.sectors',
             'apps.sectores',
             'apps.team',

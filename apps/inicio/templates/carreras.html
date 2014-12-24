@@ -1,0 +1,139 @@
+{% extends 'base2_es.html' %}
+
+{% load static from staticfiles %}
+
+{% block css %}
+	<link rel="stylesheet" href="{% static 'css/home.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	
+{% endblock %}
+
+{% block  main %}
+<section id="principal-careers">
+	<div class="container-srs">
+		<div class="row">
+			<div class="col-lg-6 col-md-12 col-sm-12 title-especial" id="title-careers">
+				<h1 class="font-size-4-3"><strong class="bold-900">CARRERAS<span class="color-texto-sunflower">.</span></strong></h1>
+			</div>
+			<div class="col-lg-6 col-md-12 col-sm-12" id="cont-img-careers">
+				<div width="100%" class="img-contact">
+					
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="content-careers">
+	<div class="container-srs">
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1 text-center" id="subtitle-careers">
+				<h2 class="font-size-3 title-especial"><strong class="bold-900">EN BUSCA DE UN NUEVO <span class="color-texto-sunflower">TALENTO.</span></strong></h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<p class="text-justify font-futurastd" style="margin-top: 1.45em;">
+					Lo único que triunfa sobre el conocimiento es la experiencia. El equipo de gestión de SRS Ingeniería combinado representa más de 70 años de experiencia en ingeniería civil. Además de 20 años de experiencia operativa sobre el terreno , la Red está en su lugar para proporcionar soluciones innovadoras a sus clientes excepcionales . Las soluciones que se traducen en proyectos exitosos validados de manera eficiente .
+				</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3" style="margin-top: 2.5em;">
+				<div class="form-horizontal">
+				  <div class="form-group">
+				    <label class="col-sm-3 control-label source-sans-pro">NOMBRE</label>
+				    <div class="col-sm-9">
+				      <input type="text" class="form-control" id="name">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label class="col-sm-3 control-label source-sans-pro">APELLIDO</label>
+				    <div class="col-sm-9">
+				      <input type="text" class="form-control" id="lastname">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label class="col-sm-3 control-label source-sans-pro">DIRECCIÓN</label>
+				    <div class="col-sm-9">
+				      <input type="text" class="form-control" id="address">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label class="col-sm-3 control-label source-sans-pro">EMAIL</label>
+				    <div class="col-sm-9">
+				      <input type="text" class="form-control" id="email">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <label class="col-sm-3 control-label source-sans-pro">TELÉFONO</label>
+				    <div class="col-sm-9">
+				      <input type="text" class="form-control" id="phone">
+				    </div>
+				  </div>
+				  <div class="form-group">
+				    <div class="col-sm-12 text-center">
+				      <button class="btn btn-customize btn-default btn-default-customize source-sans-pro-2"><b>ENVIAR</b></button>
+				    </div>
+				  </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}
+
+{% block js %}
+
+<script>
+
+$('.btn-default-customize').click(function(){
+	var careersData = {
+		name: $('#name').val(),
+		lastname: $('#lastname').val(),
+		address: $('#address').val(),
+		email: $('#email').val(),
+		telephone: $('#phone').val()
+	}
+
+	$.ajaxSetup({ 
+			 data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+		     beforeSend: function(xhr, settings) {
+		         function getCookie(name) {
+		             var cookieValue = null;
+		             if (document.cookie && document.cookie != '') {
+		                 var cookies = document.cookie.split(';');
+		                 for (var i = 0; i < cookies.length; i++) {
+		                     var cookie = jQuery.trim(cookies[i]);
+		                     // Does this cookie string begin with the name we want?
+		                 if (cookie.substring(0, name.length + 1) == (name + '=')) {
+		                     cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+		                     break;
+		                 }
+		             }
+		         }
+		         return cookieValue;
+		         }
+		         if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+		             // Only send the token to relative URLs i.e. locally.
+		             xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+		         }
+		     } 
+		});
+
+	$.ajax({
+		data: careersData,
+		url: '/send-careers-email/',
+		type: 'POST',
+		success: function(data){
+			console.log(data);
+			$('.form-control').val('');
+		}
+	});
+});
+
+
+</script>
+
+{% endblock %}

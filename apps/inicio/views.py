@@ -31,3 +31,7 @@ def ExpertiseViewSpanish(request):
 class ContactUsViewSpanish(TemplateView):
 
 	template_name = 'contactanos.html'
+
+class CareersViewSpanish(TemplateView):
+
+	template_name = 'carreras.html'

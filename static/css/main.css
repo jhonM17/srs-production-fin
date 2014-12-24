@@ -286,7 +286,7 @@ border-color: #6F6D6D;
   }
 
   .font-size-4-3{
-    font-size: 2.8em;
+    font-size: 2.8em !important;
   }
 
   .font-size-3{

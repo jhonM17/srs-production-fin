@@ -79,8 +79,12 @@ class SendingCareersView(TemplateView):
 		return "hola"
 		
 
-def langView(request):
-	salida = _("Welcome to my site")
-	return HttpResponse(salida)
+class GetMemberView(TemplateView):
+
+	def get(self, request, *args, **kwargs):
+		id_member = request.GET['id']
+		member = Member.objects.filter(id=id_member)
+
+		print member
 
 

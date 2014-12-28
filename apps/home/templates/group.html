@@ -49,13 +49,13 @@
 						{% for member in members %}	
 
 		        		<div class="col-md-3 col-xs-6">
-		        			<div class="thumbnail">
+		        			<div class="thumbnail" id="{{member.id}}">
 						      <img src="{{MEDIA_URL}}{{member.image}}" >
 						      <div class="caption">
-						        <h5 class="text-center" style="color: black">{{member.name}}</h5>
-						        <h5 class="text-center margen-top-medio" style="color:#aeaeae;">{{member.office}}</h5>
-						        <p class="text-center margen-top-medio" style="color: #37424A">{{member.bio|slice:":75"}} ... <!--<a href="#">Ver más</a></p>-->
-						        <p class="text-center margen-top-medio">
+						        <h5 class="text-center member" style="color: black" data-name="{{member.name}}">{{member.name}}</h5>
+						        <h5 class="text-center margen-top-medio member" style="color:#aeaeae;" data-office="{{member.office}}">{{member.office}}</h5>
+						        <p class="text-center margen-top-medio member" style="color: #37424A" data-bio="{{member.bio}}">{{member.bio|slice:":75"}} ... <a href="#" class="modalito" data-toggle="modal" data-target="#myModal" id="{{member.id}}">Ver Más</a>
+						        <!--<p class="text-center margen-top-medio">
 						        	
 						        	
 						        		{% if "facebook" in member.facebook %}
@@ -76,7 +76,7 @@
 						        		
 						        	</a> 
 						        	
-						        </p>
+						        </p>-->
 						      </div>
 						    </div>
 		        		</div>
@@ -116,4 +116,40 @@
 		</div>
 	</div>
 </section>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <p>One fine body&hellip;</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript">
+	$('.modalito').on('click', clickeando);
+
+	function clickeando(){
+		var id = $(this).attr('id');
+
+		$.ajax({
+			data: {'id':id},
+			url: '/member/',
+			type: 'get',
+			
+		});
+	}
+</script>
 {% endblock %}

@@ -6,7 +6,7 @@ from apps.projects.models import ProjectSpanish
 from apps.sectors.models import SectorSpanish
 from apps.team.models import MemberSpanish
 from apps.home.models import TextServicesSpanish, TextProjectsSpanish
-#from django.http import HttpResponse
+from django.http import HttpResponse
 #from django.core.mail import send_mail
 
 # Create your views here.
@@ -35,3 +35,16 @@ class ContactUsViewSpanish(TemplateView):
 class CareersViewSpanish(TemplateView):
 
 	template_name = 'carreras.html'
+
+
+from django.core import serializers
+
+class GetMemberViewSpanish(TemplateView):
+
+	def get(self, request, *args, **kwargs):
+		id_miembro = request.GET['id']
+		miembro = MemberSpanish.objects.filter(id=id_miembro)
+		print miembro[0].bio
+		data = serializers.serialize('json', miembro)
+
+		return HttpResponse(data, content_type='application/json')

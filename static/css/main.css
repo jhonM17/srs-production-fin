@@ -30,6 +30,19 @@
   display: none;
 }
 
+.modal-content{
+  border-radius: 0px;
+}
+
+.modal-header, .modal-footer{
+  background-color: #455560;
+  color: #edb742;
+}
+
+.modal-body{
+  padding: 30px;
+}
+
 body{
 	font-family: 'Source Sans Pro', sans-serif;
 }
@@ -126,7 +139,6 @@ border-color: #6F6D6D;
 .navbar-default .navbar-brand{
   display: none;
 }
-
 
 
 /* ----------------- */
@@ -326,6 +338,12 @@ border-color: #6F6D6D;
   display: none;
 }
 
+}
+
+@media screen and (min-width: 768px){
+  .modal-dialog{
+    width: 500px;
+  }
 }
 
 

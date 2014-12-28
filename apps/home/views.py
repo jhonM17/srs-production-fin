@@ -78,13 +78,15 @@ class SendingCareersView(TemplateView):
 
 		return "hola"
 		
+from django.core import serializers
 
 class GetMemberView(TemplateView):
 
 	def get(self, request, *args, **kwargs):
 		id_member = request.GET['id']
 		member = Member.objects.filter(id=id_member)
+		data = serializers.serialize('json', member)
 
-		print member
+		return HttpResponse(data, content_type='application/json')
 
 

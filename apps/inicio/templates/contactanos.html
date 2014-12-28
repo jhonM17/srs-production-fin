@@ -126,6 +126,7 @@
 				  </div>
 
 				</div>
+				<div class="alert alert-success alert-send"></div>
 			</div>
 		</div>
 	</div>
@@ -151,8 +152,6 @@ $('.btn-default-customize').click(function(){
 		how: $('#how').val(),
 		comments: $('#comments').val()
 	}
-
-	console.log(contactUsData)
 
 	$.ajaxSetup({ 
 		     beforeSend: function(xhr, settings) {
@@ -180,8 +179,19 @@ $('.btn-default-customize').click(function(){
 
 	$.ajax({
 		data: contactUsData,
-		url: '/send-contact-us-email/',
-		type: 'POST'
+		url: '/es/send-contact-us-email-spanish/',
+		type: 'POST',
+		success: function(data){
+			$('.form-control').val('');
+
+			$('.alert-send').show();
+			$('.alert-send').text(data);
+
+			setTimeout(function(){
+				$('.alert-send').hide();
+			}, 3000);
+			
+		}
 		
 	});
 });

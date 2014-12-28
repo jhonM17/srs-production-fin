@@ -78,6 +78,7 @@
 				    </div>
 				  </div>
 				</div>
+				<div class="alert alert-success alert-send"></div>
 			</div>
 		</div>
 	</div>
@@ -127,8 +128,15 @@ $('.btn-default-customize').click(function(){
 		url: '/send-careers-email/',
 		type: 'POST',
 		success: function(data){
-			console.log(data);
 			$('.form-control').val('');
+
+			$('.alert-send').show();
+			$('.alert-send').text(data);
+
+			setTimeout(function(){
+				$('.alert-send').hide();
+			}, 3000);
+			
 		}
 	});
 });

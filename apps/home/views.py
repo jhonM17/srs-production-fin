@@ -56,7 +56,7 @@ class SendingContactUsView(TemplateView):
 			email,[settings.EMAIL_HOST_USER], 
 			fail_silently=False)
 
-		return 'hola'
+		return HttpResponse("Your message has been sent!")
 
 class CareersView(TemplateView):
 
@@ -76,7 +76,7 @@ class SendingCareersView(TemplateView):
 			'Name: '+name+'\nLastname: '+lastname+'\nAddress: '+address, email, [settings.EMAIL_HOST_USER], 
 			fail_silently=False)
 
-		return "hola"
+		return HttpResponse("Your message has been sent!")
 		
 from django.core import serializers
 

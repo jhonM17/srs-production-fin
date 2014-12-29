@@ -26,11 +26,4 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR.child('static')]
 STATIC_ROOT = "staticfiles"
 
-#django-suit
-TEMPLATE_CONTEXT_PROCESSORS = TCP + (
-    'django.core.context_processors.request',
-)
 
-SUIT_CONFIG = {
-    'ADMIN_NAME': 'SRS Admin'
-}

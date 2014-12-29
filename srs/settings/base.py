@@ -54,3 +54,12 @@ ROOT_URLCONF = 'srs.urls'
 
 WSGI_APPLICATION = 'srs.wsgi.application'
 
+#django-suit
+TEMPLATE_CONTEXT_PROCESSORS = TCP + (
+    'django.core.context_processors.request',
+)
+
+SUIT_CONFIG = {
+    'ADMIN_NAME': 'SRS Admin'
+}
+

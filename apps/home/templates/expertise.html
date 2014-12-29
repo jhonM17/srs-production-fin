@@ -48,7 +48,7 @@
 				</div>
 
 				<img src="{% static 'img/expertise-service.png' %}"  class="img-responsive-2"  width="555px" height="350px" >
-				<h1 class=" text-center margen-top-uno margen-responsive"><a href="/es/servicios" class="color-texto-sunflower a-null ">SERVICES</a></h1>
+				<h1 class=" text-center margen-top-uno margen-responsive"><a href="/services" class="color-texto-sunflower a-null ">SERVICES</a></h1>
 				<p class="text-justify margen-top-uno">
 					{% if text_services %}
 						{% for text in text_services %}
@@ -86,7 +86,7 @@
 				<div class="lista margen-top-uno text-center list-responsive">
 						{% if projects %}
 							{% for project in projects %}
-								<p>{{project.name}}</p>
+								<p><a href="/sectors/{{project.sector.slug}}" class="project-expertise">{{project.name}}</a></p>
 							{% endfor %}
 						{% else %}
 							<div class="alert alert-warning text-center" role="alert">

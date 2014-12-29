@@ -4,7 +4,7 @@ $(document).on('ready', url);
 function url(valor){
     var href = $(location).attr('href');
 
-    if(href=='http://pyracabados.com/'){
+    if(href=='http://pyracabados.com/' || href=='http://pyracabados.com/es/'){
     	$('.navbar-default .navbar-nav li a').eq(0).css({'color':'#f1c40f'});
     	$('.navbar-default .navbar-nav li a').eq(1).addClass('colorFix');
     	$('.navbar-default .navbar-nav li a').eq(2).addClass('colorFix');

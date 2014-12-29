@@ -27,6 +27,9 @@ class SectorSpanish(models.Model):
 	slug = models.SlugField(max_length=250, editable=False, unique=True, db_index=True)
 	description = models.TextField(help_text="Write Name in Spanish")
 
+	class Meta:
+		verbose_name_plural = "Sectors (ES)"
+
 	def __unicode__(self):
 		return self.name
 	

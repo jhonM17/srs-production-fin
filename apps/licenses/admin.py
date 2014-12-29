@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import EntitySpanish, LicenseSpanish, Entity, License
+from .models import Entity, License, LicenseSpanish, EntitySpanish
 # Register your models here.
 
 admin.site.register(Entity)
-admin.site.register(EntitySpanish)
 admin.site.register(License)
+admin.site.register(EntitySpanish)
 admin.site.register(LicenseSpanish)

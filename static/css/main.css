@@ -193,6 +193,13 @@ border-color: #6F6D6D;
   margin-top: 2em;
 }
 
+.project-expertise{
+  color: #000;
+}
+
+.project-expertise:hover{
+  color: #edb742;
+}
   
 .margen-top-uno{
   margin-top: 1em; 

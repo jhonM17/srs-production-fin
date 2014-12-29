@@ -153,6 +153,7 @@
 			url: '/es/miembros/',
 			type: 'get',
 			dataType: 'json',
+			cache: false,
 			success: function(data){
 				 $('.modal-title').text(data[0].fields.name);
 				 $('.modal-body-p').text(data[0].fields.bio);

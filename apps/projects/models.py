@@ -25,6 +25,9 @@ class ProjectSpanish(models.Model):
 	construction_period = models.CharField(max_length=45, help_text="Write Construction Period in Spanish")
 	sector = models.ForeignKey(SectorSpanish)
 
+	class Meta:
+		verbose_name_plural = "Projects (ES)"
+
 	def __unicode__(self):
 		return self.name
 

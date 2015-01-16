@@ -26,8 +26,8 @@ class GroupViewSpanish(ListView):
 def ExpertiseViewSpanish(request):
 	text_services = TextServicesSpanish.objects.all()
 	text_projects = TextProjectsSpanish.objects.all()
-	projects = ProjectSpanish.objects.all()
-	return render_to_response('expertos.html',{'text_services': text_services,'text_projects':text_projects, 'projects': projects}, context_instance=RequestContext(request))
+	sectors = SectorSpanish.objects.all()
+	return render_to_response('expertos.html',{'text_services': text_services,'text_projects':text_projects, 'sectors': sectors}, context_instance=RequestContext(request))
 
 class ContactUsViewSpanish(TemplateView):
 

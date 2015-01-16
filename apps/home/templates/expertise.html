@@ -84,13 +84,13 @@
 					{% endif %}
 				</p>
 				<div class="lista margen-top-uno text-center list-responsive">
-						{% if projects %}
-							{% for project in projects %}
-								<p><a href="/sectors/{{project.sector.slug}}" class="project-expertise">{{project.name}}</a></p>
+						{% if sectors %}
+							{% for sector in sectors %}
+								<p><a href="/sectors/{{sector.slug}}" class="project-expertise">{{sector.name}}</a></p>
 							{% endfor %}
 						{% else %}
 							<div class="alert alert-warning text-center" role="alert">
-								<b>Empty list of Projects!</b> - <a href="/admin">Add Projects.</a>
+								<b>Empty list of Sectors!</b> - <a href="/admin">Add Sectors.</a>
 							</div>
 						
 						{% endif %}

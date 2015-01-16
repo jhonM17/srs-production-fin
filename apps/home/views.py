@@ -27,8 +27,8 @@ class GroupView(ListView):
 def ExpertiseView(request):
 	text_services = TextServices.objects.all()
 	text_projects = TextProjects.objects.all()
-	projects = Project.objects.all()
-	return render_to_response('expertise.html',{'text_services': text_services,'text_projects':text_projects, 'projects': projects}, context_instance=RequestContext(request))
+	sectors = Sector.objects.all()
+	return render_to_response('expertise.html',{'text_services': text_services,'text_projects':text_projects, 'sectors': sectors}, context_instance=RequestContext(request))
 
 class ContactUsView(TemplateView):
 

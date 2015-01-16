@@ -15,8 +15,9 @@ from django.core.mail import send_mail
 
 def HomeView(request):
 	projects = Project.objects.all()
+	p = Project.objects.all()[:4]
 	sectors = Sector.objects.all()
-	return render_to_response('index.html',{'projects': projects,'sectors':sectors}, context_instance=RequestContext(request))
+	return render_to_response('index.html',{'projects': projects,'sectors':sectors, 'p':p}, context_instance=RequestContext(request))
 
 class GroupView(ListView):
 

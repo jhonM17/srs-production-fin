@@ -67,11 +67,11 @@
 	</div>
 	
 	<div class="contenedor-proyectos-true">
-		{% if projects %}
+		{% if p %}
 
-				{% for project in projects %}
+				{% for project in p %}
 
-				{% if project.id <= 5 %}
+				
 				<div class="col-md-6 col-xs-12 col-sm-6 margen-bottom-medio">
 				    <figure id="proy">
 						<a href="sectors/{{project.sector.slug}}"><img src="{{MEDIA_URL}}{{project.image}}" width="298px" class="img-proy"></a>
@@ -80,7 +80,7 @@
 						{{project.name}}
 					</p>
 				</div>
-				{% endif %}
+				
 				
 
 				{% endfor %}

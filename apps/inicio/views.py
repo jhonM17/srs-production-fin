@@ -14,8 +14,9 @@ from django.core.mail import send_mail
 
 def InicioView(request):
 	projects = ProjectSpanish.objects.all()
+	p = ProjectSpanish.objects.all()[:4]
 	sectors = SectorSpanish.objects.all()
-	return render_to_response('inicio.html',{'projects': projects,'sectors':sectors}, context_instance=RequestContext(request))
+	return render_to_response('inicio.html',{'projects': projects,'sectors':sectors, 'p':p}, context_instance=RequestContext(request))
 
 class GroupViewSpanish(ListView):
 

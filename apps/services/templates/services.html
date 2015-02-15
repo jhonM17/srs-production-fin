@@ -42,7 +42,7 @@
 		</div>
 	
 		<div class="row margen-top-dos">
-			<div class="col-md-6 col-md-offset-3 text-center">
+			<div class="col-md-6 col-md-offset-3 text-center" id="services-offered">
 				<h2 class="font-size-3">SERVICES OFFERED</h2>
 			</div>
 
@@ -52,7 +52,7 @@
 				<div class="row">
 					{% for service in services %}
 					<div class="col-md-6 col-sm-6 col-xs-6">	
-						<p> <span class="glyphicon glyphicon-ok" style="font-size:9px"></span>&nbsp;&nbsp;{{service.name}}</p>
+						<p> {{service.name}}</p>
 					</div>
 					{% empty %}
 						<div class="alert alert-warning text-center" role="alert">
@@ -84,7 +84,7 @@
 		</div>
 
 		<div class="row margen-top-dos">
-			<div class="col-md-8 col-md-offset-2 text-center">
+			<div class="col-md-8 col-md-offset-2 text-center" id="licenses-and-certifications">
 				<h2 class="font-size-3">LICENSES AND CERTIFICATIONS</h2>
 				<p>SRS Engineering, Inc. has received technical certifications from the following agencies:</p>
 			</div>
@@ -92,19 +92,27 @@
 		</div>
 
 		<div class="row margen-top-uno">
-			{% for e_license in e_licenses %}
+			{% for entity in entities %}
 			<div class="col-md-6 col-sm-6 col-xs-12 margen-top-uno">
 				<div class="media">
 				  <a class="pull-left" href="#">
-				    <img src="{{MEDIA_URL}}{{e_license.image}}" width="64px" style="margin-top:2em">
+				  	{% if entity.image %}
+				  		<img src="{{MEDIA_URL}}{{entity.image}}" width="64px" style="margin-top:2em">
+				  	{% else %}
+				  		<img src="{% static 'img/imagen-defecto.jpg' %}" width="64px" style="margin-top:2em">
+				  	{% endif %}
+				    
 				  </a>
 				  <div class="media-body">
-				    <h4 class="media-heading"><b>{{e_license.name_entity}}</b></h4>
+				    <h4 class="media-heading"><b>{{entity.name_entity|upper}}</b></h4>
 					
-					{% for license in e_license.licenses.all %}
-						<p>{{license.number}} {{license.title}}</p>
-					{% endfor%}
-
+					{% for license in licenses %}
+						{% ifequal entity.name_entity license.entity.name_entity %}
+							<p>
+								{{license.number}} {{license.title}}
+							</p>
+						{% endifequal %}
+					{% endfor %}
 
 				  </div>
 				</div>
@@ -120,7 +128,7 @@
 		</div>
 
 		<div class="row margen-top-dos">
-			<div class="col-md-6 col-md-offset-3 text-center">
+			<div class="col-md-6 col-md-offset-3 text-center" id="awards">
 				<h2 class="font-size-3">AWARDS</h2>
 				
 			</div>
@@ -133,10 +141,15 @@
 				<div class="row">
 					<div class="media">
 					  <a class="pull-left">
-					    <img src="{{MEDIA_URL}}{{award.imagen}}" width="48px">
+					  	{% if award.image %}
+					  		<img src="{{MEDIA_URL}}{{award.image}}" width="56px" style="margin-top:.5em;">
+					  	{% else %}
+					  		<img src="{% static 'img/imagen-defecto2.jpg' %}" width="56px" style="margin-top:.5em;">
+					  	{% endif %}
+					    
 					  </a>
-					  <div class="media-body">
-					    <p class="text-center">{{award.title}}</p>
+					  <div class="media-body text-center">
+					    <div >{{award.title}}</div>
 					    
 					  </div>
 					</div>

@@ -3,7 +3,7 @@ from django.views.generic import TemplateView
 from django.template import RequestContext
 from apps.sectors.models import Sector
 from apps.services.models import Service
-from apps.licenses.models import Entity
+from apps.licenses.models import License, Entity
 from apps.awards.models import Award
 from apps.home.models import TextServices
 
@@ -15,7 +15,8 @@ class ServicesView(TemplateView):
 def ServicesView(request):
 	sectors = Sector.objects.all()
 	services = Service.objects.all()
-	e_licenses = Entity.objects.all()
+	licenses = License.objects.all()
+	entities = Entity.objects.all()
 	awards = Award.objects.all()
 	text_services = TextServices.objects.all()
-	return render_to_response('services.html',{'sectors': sectors,'services':services, 'e_licenses': e_licenses, 'awards':awards, 'text_services':text_services}, context_instance=RequestContext(request))
+	return render_to_response('services.html',{'sectors': sectors,'services':services, 'licenses': licenses, 'entities': entities, 'awards':awards, 'text_services':text_services}, context_instance=RequestContext(request))

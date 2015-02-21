@@ -8,6 +8,7 @@ class Sector(models.Model):
 	name = models.CharField(max_length=100)
 	slug = models.SlugField(max_length=250, editable=False, unique=True, db_index=True)
 	description = models.TextField()
+	image = models.ImageField(upload_to="sectors", null=False, blank=True)
 
 	def __unicode__(self):
 		return self.name
@@ -26,6 +27,7 @@ class SectorSpanish(models.Model):
 	name = models.CharField(max_length=100, help_text="Write Name in Spanish")
 	slug = models.SlugField(max_length=250, editable=False, unique=True, db_index=True)
 	description = models.TextField(help_text="Write Name in Spanish")
+	image = models.ImageField(upload_to="sectores", null=False, blank=True)
 
 	class Meta:
 		verbose_name_plural = "Sectors (ES)"

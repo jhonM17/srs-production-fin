@@ -18,13 +18,14 @@
 
 {% block main %}
 
-	<header id="header-detalle-sector">
+	{% for s in sector %}
+	<header  style="background: url('{{MEDIA_URL}}{{s.image}}') center no-repeat" id="header-detalle-sector">
 		
 	</header>
 
 	<section class="secciones">
 		<div class="container container-responsive-3">
-			{% for s in sector %}
+			
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3 text-center title-especial" >
 					
@@ -50,39 +51,23 @@
 			{% ifequal project.sector.slug s.slug%}
 			<div class="row margen-top-dos proyecto">
 				<div class="col-md-12">
-					<p class="color-texto-sunflower sector-text-responsive" style="font-size:30px">{{project.name}}</p>
-					<h3 class="sector-text-responsive-2" style="font-size:30px; color:#37424A">{{project.description}}</h3>
+					<p class="color-texto-sunflower sector-text-responsive" style="font-size:30px">{{project.project_name}}</p>
+					<h3 class="sector-text-responsive-2" style="font-size:25px; color:#37424A"><b>Location: </b>{{project.location}}</h3>
+					<h3 class="sector-text-responsive-2" style="font-size:25px; color:#37424A"><b>Client: </b>{{project.client_name}}</h3>
 					<div class="row" style="margin-top:18px;">
 						<div class="col-md-5 col-md-5-customize" >
 							<img src="{{MEDIA_URL}}{{project.image}}" class="img-proyecto" width="100%" height="">
 						</div>
-						<div class="col-md-7 inner-both-uno detalle-proyecto">
+						<div class="col-md-7 inner-both-uno detalle-proyecto" style="height:280px !important">
 							<div class="row ">
 								<div class="col-md-12">
-									<h4 class="color-texto-sunflower">NOMBRE DEL PROYECTO</h4>
-									<p STYLE="font-size:15px">{{project.name}}</p>
-								</div>
-							</div>
-							<div class="row margen-top-uno">
-								<div class="col-md-12">
-									<h4 class="color-texto-sunflower">UBICACIÓN</h4>
-									<p STYLE="font-size:15px">{{project.location}}</p>
-								</div>
-							</div>
-							<div class="row margen-top-uno">
-								<div class="col-md-12">
-									<h4 class="color-texto-sunflower">VALOR TOTAL</h4>
-									<p STYLE="font-size:15px">{{project.total_value}}</p>
-								</div>
-							</div>
-							<div class="row margen-top-uno">
-								<div class="col-md-12">
-									<h4 class="color-texto-sunflower">PERIODO DE CONSTRUCCIÓN</h4>
-									<p STYLE="font-size:15px">{{project.construction_period}}</p>
+									<h4 class="color-texto-sunflower">PROJECT DESCRIPTION</h4>
+									<p STYLE="font-size:15px">{{project.description}}</p>
 								</div>
 							</div>
 						</div>
 					</div>
+
 				</div>
 			</div>
 			{% endifequal %}

@@ -73,17 +73,17 @@
 				    </div>
 				  </div>
 				  <div class="form-group">
-				    <div class="col-xs-6">
+				    <div class="col-xs-12">
 				    	<label for="company">COMPAÑIA</label>
 				      <input type="text" class="form-control" id="company">
 				    </div>
 				 
-				    <div class="col-xs-6">
+				    <!--<div class="col-xs-6">
 				    	<label for="address">DIRECCIÓN</label>
 				      <input type="text" class="form-control" id="address">
-				    </div>
+				    </div>-->
 				  </div>
-				  <div class="form-group">
+				  <!--<div class="form-group">
 				    <div class="col-xs-4">
 				    	<label for="city">CIUDAD<span class="color-texto-sunflower">*</span></label>
 				    </div>
@@ -118,7 +118,15 @@
 				    <div class="col-xs-12">
 				      <textarea class="form-control" rows="3" id="comments"></textarea>
 				    </div>
-				  </div>					  		  
+				  </div>-->
+				  <div class="form-group">
+				  	<div class="col-xs-12">
+				    	<label for="message">MENSAJE<span class="color-texto-sunflower">*</span></label>
+				    </div>
+				    <div class="col-xs-12">
+				      <textarea class="form-control" rows="3" id="message"></textarea>
+				    </div>
+				  </div>			  		  
 				  <div class="form-group">
 				    <div class="col-sm-offset-1 col-sm-10 text-center">
 				      <button class="btn btn-customize btn-default btn-default-customize"><b>ENVIAR</b></button>
@@ -145,12 +153,7 @@ $('.btn-default-customize').click(function(){
 		email: $('#email').val(),
 		telephone: $('#telephone').val(),
 		company: $('#company').val(),
-		address: $('#address').val(),
-		city: $('#city').val(),
-		state: $('#state').val(),
-		country: $('#country').val(),
-		how: $('#how').val(),
-		comments: $('#comments').val()
+		message: $('#message').val()
 	}
 
 	$.ajaxSetup({ 

@@ -51,9 +51,12 @@
 			<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
 				<div class="row">
 					{% for service in services %}
-					<div class="col-md-6 col-sm-6 col-xs-6">	
-						<p> {{service.name}}</p>
-					</div>
+						{% if service.description %}
+						{% else %}
+							<div class="col-md-6 col-sm-6 col-xs-6">	
+								<p> {{service.name}}</p>
+							</div>
+						{% endif %}
 					{% empty %}
 						<div class="alert alert-warning text-center" role="alert">
 							<b>Empty list of Services Offered!</b> - <a href="/admin">Add Services.</a>
@@ -67,12 +70,18 @@
 		<div class="row margen-top-uno">
 			<div class="col-md-10 col-md-offset-1">
 				<div class="row">
-					{% for sector in sectors %}
-					<div class="col-md-6">
-						<h5 class="text-center title-especial-2 margen-top-uno upper"><a href="/sectors/{{sector.slug}}" class="a-null-sector"><span class="glyphicon glyphicon-link color-texto-sunflower"></span>&nbsp;&nbsp;&nbsp;{{sector.name}}</a></h5>
-						<p class="text-justify">{{sector.description}}</p>
-					</div>
+					{% for service in services %}
+						{% if service.description %}
 
+							<div class="col-md-6">
+								<h5 class="text-center title-especial-2 margen-top-uno upper"><span class="glyphicon glyphicon-link color-texto-sunflower"></span>&nbsp;&nbsp;&nbsp;{{service.name}}</h5>
+								<p class="text-justify">{{service.description}}</p>
+							</div>
+
+
+						{% else %}
+						{% endif %}
+					
 					{% empty %}
 						<div class="alert alert-warning text-center" role="alert">
 							<b>Empty list of Sectors!</b> - <a href="/admin">Add Sectors.</a>

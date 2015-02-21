@@ -44,16 +44,11 @@ class SendingContactUsView(TemplateView):
 		email = request.POST['email']
 		telephone = request.POST['telephone']
 		company = request.POST['company']
-		address = request.POST['address']
-		city = request.POST['city']
-		state = request.POST['state']
-		country = request.POST['country']
-		how = request.POST['how']
-		comments = request.POST['comments']
+		message = request.POST['message']
 
 		send_mail(
-			'hola contact-us', 
-			'Name: '+firstname+'\nLastname: '+lastname+'\nAddress: '+address, 
+			interested, 
+			'Name: '+firstname+' '+lastname+'\nCompany: '+company+'\nEmail: '+email+'\nPhone: '+telephone+'\nMessage: '+message, 
 			email,[settings.EMAIL_HOST_USER], 
 			fail_silently=False)
 

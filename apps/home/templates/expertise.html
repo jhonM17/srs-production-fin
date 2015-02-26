@@ -63,10 +63,11 @@
 				</p>
 				<div class="lista margen-top-uno text-center list-responsive">
 					
-						<p><a href="/services#services-offered" class="project-expertise">SERVICES OFFERED</a></p>
-						<p><a href="/services#licenses-and-certifications" class="project-expertise">LICENSES AND CERTIFICATIONS</a></p>
-						<p><a href="/services#awards" class="project-expertise">AWARDS</a></p>
-					
+					{% for service in services %}
+						{% if service.description %}
+							<p><a href="/services#services-offered" class="project-expertise">{{service.name|upper}}</a></p>
+						{% endif %}
+					{% endfor %}
 				</div>
 			</div>
 			<div class="col-md-6 col-xs-6">

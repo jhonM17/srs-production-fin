@@ -1,9 +1,11 @@
+
 from django.conf import settings
 from django.shortcuts import render_to_response
 from django.views.generic import TemplateView, ListView
 from django.template import RequestContext
 from apps.projects.models import Project
 from apps.sectors.models import Sector
+from apps.services.models import Service
 from apps.team.models import Member
 from .models import TextServices, TextProjects
 from django.http import HttpResponse
@@ -29,7 +31,8 @@ def ExpertiseView(request):
 	text_services = TextServices.objects.all()
 	text_projects = TextProjects.objects.all()
 	sectors = Sector.objects.all()
-	return render_to_response('expertise.html',{'text_services': text_services,'text_projects':text_projects, 'sectors': sectors}, context_instance=RequestContext(request))
+	services = Service.objects.all()
+	return render_to_response('expertise.html',{'text_services': text_services,'text_projects':text_projects, 'sectors': sectors, 'services': services}, context_instance=RequestContext(request))
 
 class ContactUsView(TemplateView):
 

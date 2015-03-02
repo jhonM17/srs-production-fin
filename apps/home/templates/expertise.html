@@ -63,7 +63,7 @@
 				</p>
 				<div class="lista margen-top-uno text-center list-responsive">
 					
-					{% for service in services %}
+					{% for service in services|dictsort:"name" %}
 						{% if service.description %}
 							<p><a href="/services#services-offered" class="project-expertise">{{service.name|upper}}</a></p>
 						{% endif %}
@@ -86,8 +86,8 @@
 				</p>
 				<div class="lista margen-top-uno text-center list-responsive">
 						{% if sectors %}
-							{% for sector in sectors %}
-								<p><a href="/sectors/{{sector.slug}}" class="project-expertise">{{sector.name}}</a></p>
+							{% for sector in sectors|dictsort:"name" %}
+								<p><a href="/sectors/{{sector.slug}}" class="project-expertise">{{sector.name|upper}}</a></p>
 							{% endfor %}
 						{% else %}
 							<div class="alert alert-warning text-center" role="alert">

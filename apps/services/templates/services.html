@@ -101,39 +101,104 @@
 		</div>
 
 		<div class="row margen-top-uno">
-			<p class="text-center">LICENSES</p>
-			{% for entity in entities %}
-			<div class="col-md-6 col-sm-6 col-xs-12 margen-top-uno">
-				<div class="media">
-				  <a class="pull-left" href="#">
-				  	{% if entity.image %}
-				  		<img src="{{MEDIA_URL}}{{entity.image}}" width="64px" style="margin-top:2em">
-				  	{% else %}
-				  		<img src="{% static 'img/imagen-defecto.jpg' %}" width="64px" style="margin-top:2em">
-				  	{% endif %}
-				    
-				  </a>
-				  <div class="media-body">
-				    <h4 class="media-heading"><b>{{entity.name_entity|upper}}</b></h4>
-					
-					{% for license in licenses %}
-						{% ifequal entity.name_entity license.entity.name_entity %}
-							<p>
-								{{license.number}} {{license.title}}
-							</p>
-						{% endifequal %}
-					{% endfor %}
 
-				  </div>
-				</div>
-			</div>
+			<div class="text-center">
+						<h2>
+							LICENSES
+						</h2>
+					</div>
+			
+			{% for entity in entities %}
+
+					
+
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margen-top-uno">
+						<div class="media">
+						  <a class="pull-left" href="#">
+						  	{% if entity.image %}
+						  		<img src="{{MEDIA_URL}}{{entity.image}}" width="64px" style="margin-top:2em">
+						  	{% else %}
+						  		<img src="{% static 'img/imagen-defecto.jpg' %}" width="64px" style="margin-top:2em">
+						  	{% endif %}
+						    
+						  </a>
+						  <div class="media-body">
+						    <h4 class="media-heading"><b>{{entity.name_entity|upper}}</b></h4>
+							
+							<div class="row">
+								{% for license in licenses %}
+									{% ifequal entity.name_entity license.entity.name_entity %}
+
+										<div class="col-lg-6 col-md-6">
+											{{license.number}} {{license.title}}
+										</div>
+									{% endifequal %}
+								{% endfor %}
+							</div>
+							
+
+						  </div>
+						</div>
+					</div>
+
 			{% empty %}
 				<div class="alert alert-warning text-center" role="alert">
 					<b>Empty list of Licenses!</b> - <a href="/admin">Add Licenses.</a>
 				</div>
 
 			{% endfor %}
+		</div>
 
+		<div class="row margen-top-uno">
+			<div class="text-center">
+						<h2>
+							CERTIFICATIONS
+						</h2>
+					</div>
+				
+			{% for institution in institutions %}
+
+					
+
+					<div class="col-md-12 col-sm-12 col-xs-12 margen-top-uno">
+						<div class="media">
+						  <a class="pull-left" href="#">
+						  	{% if institution.image %}
+						  		<img src="{{MEDIA_URL}}{{institution.image}}" width="64px" style="margin-top:2em">
+						  	{% else %}
+						  		<img src="{% static 'img/imagen-defecto.jpg' %}" width="64px" style="margin-top:2em">
+						  	{% endif %}
+						    
+						  </a>
+						  <div class="media-body">
+						    <h4 class="media-heading"><b>{{institution.name_institution|upper}}</b></h4>
+							
+							<div class="row">
+								{% for certification in certifications %}
+
+									{% ifequal institution.name_institution certification.institution.name_institution %}
+										<div class="col-lg-6 col-md-6">
+											{{certification.title}}
+										</div>
+									{% endifequal %}
+								{% endfor %}
+							</div>
+							
+
+						  </div>
+						</div>
+					</div>
+
+			{% empty %}
+				<div class="alert alert-warning text-center" role="alert">
+					<b>Empty list of Certifications!</b> - <a href="/admin">Add Certifications.</a>
+				</div>
+
+			{% endfor %}
+	
+					
+				
+			
 			
 		</div>
 

@@ -18,7 +18,7 @@ DJANGO_APPS = (
             'django.contrib.sessions',
             'django.contrib.messages',
             'django.contrib.staticfiles',
-            'multiselectfield',
+
         )
 
 THIRD_PARTY_APPS = (

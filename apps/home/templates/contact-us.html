@@ -50,15 +50,15 @@
 				  </div>
 				  <div class="form-group">
 				    <!--<label for="firstname">First Name</label>-->
-				    <div class="col-md-6">
-				    	<label for="interest">FIRST NAME</label>
-				      <input type="text" class="form-control" id="first-name">
+				    <div class="col-md-12">
+				    	<label for="interest">NAME</label>
+				      <input type="text" class="form-control" id="name">
 				    </div>
 				 
-				    <div class="col-md-6">
+				    <!--<div class="col-md-6">
 				    	<label for="interest">LAST NAME</label>
 				      <input type="text" class="form-control" id="last-name">
-				    </div>
+				    </div>-->
 				  </div>
 				  <div class="form-group">
 				    <!--<label for="firstname">First Name</label>-->
@@ -148,8 +148,8 @@
 $('.btn-default-customize').click(function(){
 	var contactUsData = {
 		interested: $('#interested').val(),
-		firstname: $('#first-name').val(),
-		lastname: $('#last-name').val(),
+		name: $('#name').val(),
+		//lastname: $('#last-name').val(),
 		email: $('#email').val(),
 		telephone: $('#telephone').val(),
 		company: $('#company').val(),

@@ -42,8 +42,8 @@ class SendingContactUsView(TemplateView):
 
 	def post(self, request, *args, **kwargs):
 		interested = request.POST['interested']
-		firstname = request.POST['firstname']
-		lastname = request.POST['lastname']
+		name = request.POST['name']
+		#lastname = request.POST['lastname']
 		email = request.POST['email']
 		telephone = request.POST['telephone']
 		company = request.POST['company']
@@ -51,7 +51,7 @@ class SendingContactUsView(TemplateView):
 
 		send_mail(
 			interested, 
-			'Name: '+firstname+' '+lastname+'\nCompany: '+company+'\nEmail: '+email+'\nPhone: '+telephone+'\nMessage: '+message, 
+			'Name: '+name+'\nCompany: '+company+'\nEmail: '+email+'\nPhone: '+telephone+'\nMessage: '+message, 
 			email,[settings.EMAIL_HOST_USER], 
 			fail_silently=False)
 

@@ -65,13 +65,8 @@
 					
 					{% for service in services|dictsort:"name" %}
 						{% if service.description %}
-							<p><a href="/services#services-offered" class="project-expertise">{{service.name|upper}}</a></p>
-						{% else %}
-
-							<div class="alert alert-warning text-center" role="alert">
-							<b>Empty list of Services!</b> - <a href="/admin">Add Services.</a>
-						</div>
-
+							<p><a href="/services" class="project-expertise">{{service.name|upper}}</a></p>
+					
 						{% endif %}
 						
 

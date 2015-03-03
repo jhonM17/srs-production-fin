@@ -50,7 +50,7 @@
 		<div class="row margen-top-dos">
 			<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
 				<div class="row">
-					{% for service in services %}
+					{% for service in services|dictsort:"name" %}
 						{% if service.description %}
 						{% else %}
 							<div class="col-md-6 col-sm-6 col-xs-6">	
@@ -70,7 +70,7 @@
 		<div class="row margen-top-uno">
 			<div class="col-md-10 col-md-offset-1">
 				<div class="row">
-					{% for service in services %}
+					{% for service in services|dictsort:"name" %}
 						{% if service.description %}
 
 							<div class="col-md-6">
@@ -219,7 +219,7 @@
 					  	{% if award.image %}
 					  		<img src="{{MEDIA_URL}}{{award.image}}" width="56px" style="margin-top:.5em;">
 					  	{% else %}
-					  		<img src="{% static 'img/imagen-defecto2.jpg' %}" width="56px" style="margin-top:.5em;">
+					  		<div style="margin-top:.5em;width:56px;height:15px"></div>
 					  	{% endif %}
 					    
 					  </a>

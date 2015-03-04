@@ -163,7 +163,10 @@
 <script type="text/javascript">
 	
 	$(function() {
-	    var unslider = $('.banner').unslider();
+	    var unslider = $('.banner').unslider({
+	    	speed: 4000,
+	    	delay: 4000
+	    });
     
 	    $('.unslider-arrow').click(function() {
 	        var fn = this.className.split(' ')[1];
@@ -197,7 +200,10 @@
 		var tamWindow = $(window).width()
 		$('#subheader-true>.row').width(tamWindow);
 
-		var unslider = $('.banner').unslider();
+		var unslider = $('.banner').unslider({
+	    	speed: 4000,
+	    	delay: 4000
+	    });
     
 	}
 

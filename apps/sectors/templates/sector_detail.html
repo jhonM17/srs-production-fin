@@ -6,10 +6,16 @@
 
 
 <link rel="stylesheet" href="{% static 'css/sectors.css' %}">
+<link rel="stylesheet" href="{% static 'css/perfect-scrollbar.css'%}">
 <style>
 	.relleno-both-lateral-3{
 		padding-left: 5em !important;
 		padding-right: 0 !important;
+	}
+	
+	#ps{
+		position: relative;
+		height: 230px;
 	}
 </style>
 <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
@@ -60,7 +66,7 @@
 						</div>
 						<div class="col-md-7 inner-both-uno detalle-proyecto" style="height:280px !important">
 							<div class="row ">
-								<div class="col-md-12">
+								<div class="col-md-12" id="ps" >
 									<h4 class="color-texto-sunflower">PROJECT DESCRIPTION</h4>
 									<p STYLE="font-size:15px">{{project.description}}</p>
 								</div>
@@ -83,12 +89,11 @@
 	</section>
 	{% endfor %}
 		
-		
-	
 
 {% endblock %}
 {% block js %}
 
+<script src="{% static 'js/vendor/perfect-scrollbar.js' %}"></script>
 <script>
 	$(document).ready(function(){
 		resizeWindow();
@@ -108,6 +113,10 @@
 		}
 	}
 	
+</script>
+<script>
+	var containerPs = document.getElementById('ps');
+	Ps.initialize(containerPs);
 </script>
 
 {% endblock %}

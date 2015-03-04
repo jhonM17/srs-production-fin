@@ -16,9 +16,19 @@ from django.core.mail import send_mail
 # Create your views here.
 
 def HomeView(request):
-	projects = Project.objects.all()
-	p = Project.objects.all()[:4]
+	
+	plen = len(Project.objects.all())
+	mulplen = plen%4
+
+	if mulplen==0 :
+		projects = Project.objects.all()
+
+	else:
+		mul = plen-mulplen
+		projects = Project.objects.all()[:mul]
+
 	sectors = Sector.objects.all()
+	p=Project.objects.all()[:4]
 	return render_to_response('index.html',{'projects': projects,'sectors':sectors, 'p':p}, context_instance=RequestContext(request))
 
 class GroupView(ListView):

@@ -5,6 +5,11 @@
 {% block css %}
 	<link rel="stylesheet" href="{% static 'css/home.css' %}">
 	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<style>
+		#address{
+			-webkit-padding-bottom: .5em;
+		}
+	</style>
 	
 {% endblock %}
 
@@ -75,7 +80,7 @@
 				  <div class="form-group">
 				    <label class="col-sm-3 control-label source-sans-pro">CV UPLOAD</label>
 				    <div class="col-sm-9">
-				      <input type="file" class="form-control" id="address">
+				      <input type="file" id="address">
 				    </div>
 				  </div>
 				  <div class="form-group">

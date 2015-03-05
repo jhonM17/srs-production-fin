@@ -72,7 +72,7 @@
   z-index: 2;
   left: 0;
   right: 0;
-  top: -175px;
+  top: -200px;
 }
 .contenedor-arrow .prev {
   float: left;
@@ -144,7 +144,7 @@
   padding-left: 2.5em;
   padding-right: 2.5em;
   overflow: hidden;
-  height: auto;
+  height: 310px;
 }
 .unslider-arrow {
   border: 0;
